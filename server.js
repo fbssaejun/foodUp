@@ -50,6 +50,10 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/customer_menu", (req, res) => {
+  res.render("customer_menu");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
