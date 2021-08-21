@@ -5,7 +5,7 @@ nav {
   align-items: center;
   z-index: 1;
   width: 100%;
-  margin-bottom: 100px;
+  height: 10vh;
   position: fixed;
   top:0;
   border-bottom: 2px solid black;
@@ -22,17 +22,20 @@ nav {
     color: goldenrod;
   }
 
-
   .navAnchors {
     display: flex;
     flex-direction: row;
     align-items:center;
+  }
 
-
+  .fa-arrow-left {
+    padding-left: 15px;
   }
 
   h2 {
-    margin-left: 13%;
+    position:fixed;
+    left: 47%;
+    top:0;
   }
 }
 
