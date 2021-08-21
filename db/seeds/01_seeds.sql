@@ -40,11 +40,16 @@ INSERT INTO menu_items(name, price, kalories, cuisine, available, image_url)
   VALUES('Beef Pho', 15, 600, 'Vietnamese' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/4099410.jpg')
   VALUES('Ube-Macapuno Cake', 8, 800, 'Filipino' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/8018.jpg')
   VALUES('Mexican Sushi', 12, 750, 'Japanese' , TRUE, 'https://images.media-allrecipes.com/userphotos/250x250/1075535.jpg')
-  VALUES('Spicy Tuna Sushi Roll', 12, 1700, 'Japanese' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/6648154.jpg')VALUES('Pho', 11, 3000, 'Vietnamese' , TRUE, 'https://images.media-allrecipes.com/userphotos/250x250/818297.jpg')
+  VALUES('Spicy Tuna Sushi Roll', 12, 1700, 'Japanese' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/6648154.jpg')
   VALUES('Buffalo Chicken Sushi Roll', 5, 270, 'Japanese' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/3792008.jpg')
   VALUES('Lagkage Danish Layer Cake', 15, 5800, 'Scandinavian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/16/97/47/picFuSRVu.jpg')
   VALUES('Cheese Danish Coffee Cake', 13, 1220, 'Scandinavian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/10/29/24/picw3Zdkv.jpg')
   VALUES('Freshly Baked English North Country Strawberries and Cream Courting Cake', 15, 5700, 'Indonesian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/23/43/58/picCQTbHc.jpg')
-
+  VALUES('Rainbow Sushi', 15, 54, 'Japanese' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/52/97/29/KqrHQ0o0T3y3xhOuYvrF_Rainbow%20Sushi%20Roll%20Still%2002.jpg')
+  VALUES('Victorian Spring Posy Cake', 12, 2000, 'Scottish' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/36/21/06/picIPflPU.jpg')
+  VALUES('Buffalo Wings With Greek Yogurt Dip', 12, 900, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/3792008.jpg')
+  VALUES('Caesar Chicken Wings', 13, 2707, 'Canadian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/79/61/8/picCoRA0s.jpg')
+  VALUES('Pineapple Upside-Down Cake', 14, 1850, 'Scandinavian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/10/83/55/picHgGHE1.jpg')
+  VALUES('Grilled Gorgonzola-Basil Burgers', 12, 600, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/1118907.jpg')
 
 
