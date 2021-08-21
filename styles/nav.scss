@@ -8,6 +8,7 @@ nav {
   margin-bottom: 100px;
   position: fixed;
   top:0;
+  border-bottom: 2px solid black;
 
   a {
     padding: 5px;
@@ -28,6 +29,10 @@ nav {
     align-items:center;
 
 
+  }
+
+  h2 {
+    margin-left: 13%;
   }
 }
 
