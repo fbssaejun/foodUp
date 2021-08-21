@@ -5,13 +5,25 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+
+    <!--View style css links-->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" tpye="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <nav>
+      <a href="">Menu</a>
+      <h2>FoodUp</h2>
+      <div class="navAnchors">
+        <a href="">Orders</a> <!-- This is going to be hidden when no one is logged in, only for clients-->
+        <a href="">Edit</a> <!-- This is going to be hidden when no one is logged in, only for owners-->
+        <a href="">Login</a>
+        <a href="">Register</a>
+      </div>
+    </nav>
   </body>
 </html>
