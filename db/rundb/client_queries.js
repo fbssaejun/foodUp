@@ -1,7 +1,7 @@
 const db = require('db-connect.js');
 
 // Get all items which are available for menu
-const getMenuItemsForClient = () => {
+const getMenuItemsForClients = () => {
   const queryString = 'SELECT * FROM menu_items WHERE available'
   return db.query(queryString)
     .then(result => result.rows)
@@ -20,6 +20,6 @@ const getClientOrders = (id) => {
 }
 
 module.export = {
-  getMenuItemsForClient,
+  getMenuItemsForClients,
   getClientOrders
 }
