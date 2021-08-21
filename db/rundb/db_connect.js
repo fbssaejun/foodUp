@@ -1,7 +1,6 @@
 // amodule to connect to the database using variables in process.env
 require('dotenv').config()
-const pg = require('pg');
-const {Pool} = pg.Pool;
+const {Pool} = require('pg');
 
 const config = {
   user: process.env.DB_USER,
@@ -11,10 +10,10 @@ const config = {
   port:5432
 }
 
-const pool = new Pool(config);
+const dbclient = new Pool(config);
 
 pool.connect(() => {
   console.log('connected to database')
 });
 
-module.export = pool;
+module.export = dbclient;
