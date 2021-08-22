@@ -46,6 +46,7 @@ const ownerRouter = express.Router();
 // Pass this routers into ownerRoutes function which was imported from route/ownerRouter.js. This function will mutate ownerRouter object
 // and mount it to routes defined in ownerRouter file. Object is mutated by reference, so return value does not need to be explicitly assigned.
 ownerRoutes(ownerRouter);
+//Middleware assinged
 app.use("/admin", ownerRouter);
 
 
