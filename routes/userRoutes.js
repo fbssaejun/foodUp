@@ -29,5 +29,11 @@ module.exports = function(router) {
       });
   });
 
+  router.get('/login', (req, res) => {
+      res
+      .status(200)
+      .render("login")
+  })
+
   return router;
 }
