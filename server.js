@@ -30,17 +30,6 @@ app.use(express.static("public"));
 //===============================================================================================================================
 //=================================================    Routing for user / paths     =============================================
 //===============================================================================================================================
-// Create a new instance of a router which will be used for USER routes
-const userRouter = express.Router();
-// Pass this routers into userRoutes function which was imported from route/userRouter.js. This function will mutate userRouter object
-// and mount it to routes defined in userROuter file. Object is mutated by reference, so return value does not need to be explicitly assigned.
-userRoutes(userRouter);
-//Middleware assinged
-app.use("/", userRouter);
-
-//===============================================================================================================================
-//=================================================    Routing for user / paths     =============================================
-//===============================================================================================================================
 // Create a new instance of a router which will be used for OWNER routes
 const ownerRouter = express.Router();
 // Pass this routers into ownerRoutes function which was imported from route/ownerRouter.js. This function will mutate ownerRouter object
@@ -48,6 +37,17 @@ const ownerRouter = express.Router();
 ownerRoutes(ownerRouter);
 //Middleware assinged
 app.use("/admin", ownerRouter);
+
+//===============================================================================================================================
+//=================================================    Routing for user / paths     =============================================
+//===============================================================================================================================
+// Create a new instance of a router which will be used for USER routes
+const userRouter = express.Router();
+// Pass this routers into userRoutes function which was imported from route/userRouter.js. This function will mutate userRouter object
+// and mount it to routes defined in userROuter file. Object is mutated by reference, so return value does not need to be explicitly assigned.
+userRoutes(userRouter);
+//Middleware assinged
+app.use("/", userRouter);
 
 
 app.listen(PORT, () => {
