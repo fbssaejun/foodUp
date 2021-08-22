@@ -3,12 +3,6 @@ const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb
 
 module.exports = function(router) {
 
-  router.get('/', (req, res) => {
-      res
-      .status(200)
-      .render("index");
-  });
-
   router.get('/menu', (req, res) => {
     getMenuItemsForClients()
     .then((items) => {
