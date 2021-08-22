@@ -17,5 +17,20 @@ module.exports = function(router) {
       });
   });
 
+  router.get('/order/:item', (req, res) => {
+    const orderID = req.params.item;
+    getOrderDetails(orderID)
+    .then(data => {
+      res
+        .status(200)
+        .json(data)
+    })
+    .catch(error => {
+      res
+        .status(500)
+        .send("Catch :", error.message)
+    })
+  });
+
   return router;
 }
