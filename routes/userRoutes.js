@@ -29,11 +29,5 @@ module.exports = function(router) {
       });
   });
 
-  // router.get("/customer_menu", (req, res) => {
-  //   res
-  //   .status(200)
-  //   .render("customer_menu");
-  // });
-
   return router;
 }
