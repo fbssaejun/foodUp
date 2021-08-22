@@ -1,9 +1,13 @@
 // const bcrypt = require('bcrypt');
 const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb/client_queries.js')
 
-// PG database client connection
-
 module.exports = function(router) {
+
+  router.get('/', (req, res) => {
+      res
+      .status(200)
+      .render("index");
+  });
 
   router.get('/menu', (req, res) => {
     getMenuItemsForClients()
@@ -27,6 +31,12 @@ module.exports = function(router) {
           .status(500)
           .json(error.message);
       });
+  });
+
+  router.get("/customer_menu", (req, res) => {
+    res
+    .status(200)
+    .render("customer_menu");
   });
 
   return router;
