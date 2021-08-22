@@ -12,7 +12,7 @@ const config = {
 
 const dbclient = new Pool(config);
 
-pool.connect(() => {
+dbclient.connect(() => {
   console.log('connected to database')
 });
 
