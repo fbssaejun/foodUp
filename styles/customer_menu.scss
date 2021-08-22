@@ -4,9 +4,10 @@
   justify-content: center;
   width:inherit;
   flex-wrap: wrap;
+  margin: auto;
 
   .menu-item {
-    display:grid;
+    display:flex;
     flex-direction: column;
     padding: 100px 100px;
     margin: 10px 10px;
