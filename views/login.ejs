@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>FoodUp</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+
+  <!--View style css links-->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" tpye="text/css" />
+  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
+
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <%- include('partials/headers') %>
+  <form method="POST" action="/login">
+    <h2>Login</h2>
+      <div>
+        <label for="exampleInputEmail">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail" name="email" placeholder="Enter email" />
+      </div>
+      <div>
+        <label for="exampleInputPassword">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword" name="password" placeholder="Password" />
+      </div>
+      <input class="btn btn-success col-md-3 mb-3" type="submit" value="Login" />
+    </form>
+    <form method="POST" action="/register">
+      <h2>Register</h2>
+        <div>
+          <label for="exampleInputEmail">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail" name="email" placeholder="Enter email" />
+        </div>
+        <div>
+          <label for="exampleInputPassword">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword" name="password" placeholder="Password" />
+        </div>
+        <input class="btn btn-success col-md-3 mb-3" type="submit" value="Create Account" />
+      </form>
+  <%- include('partials/footers') %>
+</body>
+
+</html>

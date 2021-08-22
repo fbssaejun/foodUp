@@ -6,7 +6,7 @@
   flex-wrap: wrap;
 
   .menu-item {
-    display:flex;
+    display:grid;
     flex-direction: column;
     padding: 100px 100px;
     margin: 10px 10px;

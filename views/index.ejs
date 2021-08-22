@@ -13,28 +13,14 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
-
   <body>
-    <nav>
-      <a href="./customer_menu">Menu</a>
-        <h2>FoodUp</h2>
-      <div class="navAnchors">
-        <a href="">Login</a>
-        <a href="">Register</a>
-      </div>
-    </nav>
-
+  <%- include('partials/headers') %>
     <div class="home-container">
       <div>
         <a href=""><button>Place an order</button></a>
       </div>
     </div>
-
-    <footer>
-      <p>Contact</p>
-      <p>Email : ilovefood@foodUp.com</p>
-      <p>Phone: 123-456-7890</p>
-    </footer>
+  <%- include('partials/footer') %>
   </body>
 
 </html>
