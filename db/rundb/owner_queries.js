@@ -49,10 +49,10 @@ const getOrderDetails = (id) => {
   const queryString =   `SELECT *
                         FROM orders
                         JOIN order_items
-                        ON orders.id = order_items.orders_id
-                        WHERE orders.id = $1`
+                        ON orders.id = order_items.order_id
+                        WHERE orders.id = $1;`
   return db.query(queryString, [id])
-  .then(result => result.rows[0])
+  .then(result => result.rows)
   .catch(error => console.error(error.message))
 }
 
