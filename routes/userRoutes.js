@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const {getMenuItemsForClients, getClientOrders} = require('../db/rundb/client_queries')
 
 // PG database client connection

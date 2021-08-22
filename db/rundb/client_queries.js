@@ -1,4 +1,4 @@
-const db = require('db-connect.js');
+const db = require('./db_connect');
 
 // Get all items which are available for menu
 const getMenuItemsForClients = () => {

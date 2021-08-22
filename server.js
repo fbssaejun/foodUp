@@ -45,8 +45,6 @@ userRoutes(userRouter)
 app.use("/", userRouter);
 
 
-// app.use("/api/widgets", widgetsRoutes(db));
-// Note: mount other resources here, using the same pattern above
 
 
 // Home page
