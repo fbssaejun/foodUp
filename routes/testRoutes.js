@@ -3,5 +3,16 @@ const {getMenuItems,getAllOrders,getMenuItem, getOrderDetails} = require('../db/
 
 module.exports = function(router) {
 
+  router.get('/menu', (req, res) => {
+    getMenuItemsForClients()
+    .then((items) => {
+      res
+      .json(items)})
+    .catch((error) => {
+      res
+      .status(500)
+      .send("Error: something went wrong: ", error.message)})
+  });
+
   return router;
 }

@@ -3,11 +3,13 @@ const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb
 
 module.exports = function(router) {
 
-  router.get('/menu', (req, res) => {
+  router.get('/customer_menu', (req, res) => {
     getMenuItemsForClients()
     .then((items) => {
+      const templateVars = {items}
       res
-      .json(items)})
+      .status(200)
+      .render("customer_menu", templateVars)})
     .catch((error) => {
       res
       .status(500)
@@ -27,11 +29,11 @@ module.exports = function(router) {
       });
   });
 
-  router.get("/customer_menu", (req, res) => {
-    res
-    .status(200)
-    .render("customer_menu");
-  });
+  // router.get("/customer_menu", (req, res) => {
+  //   res
+  //   .status(200)
+  //   .render("customer_menu");
+  // });
 
   return router;
 }
