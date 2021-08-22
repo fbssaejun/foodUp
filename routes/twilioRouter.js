@@ -15,3 +15,4 @@ client.messages
     from: twilioNumber
   })
   .then((message) => console.log(message.sid))
+  .catch((error) => console.log(error.message))
