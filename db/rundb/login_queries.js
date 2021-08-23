@@ -6,11 +6,24 @@ const pool = require('./db_connect');
  * @param  {Integer} email a user email address
  * @return {Promise<{}>} A promise to the user.
  */
-const checkUserExists = function(email) {
-  const queryString = 'SELECT count(*) FROM users WHERE email = $1'
+const checkUserExists = function(login) {
+  const email = String(login);
+  const queryString = `SELECT count(*) FROM users WHERE email LIKE $1`;
   return pool.query(queryString, [email])
-    .then(result => result.rows)
+    .then(result => result.rows[0])
     .catch(error => console.log(error.message));
 };
+/**
+ * Returns password for a user in database
+ * @param  {Integer} email a user email address
+ * @return {Promise<{}>} A promise to the user with password for specified email
+ */
+const getUserPassword = function(login) {
+  const email = String(login);
+  const queryString = `SELECT password FROM users WHERE email LIKE $1`;
+  return pool.query(queryString, [email])
+    .then(result => result.rows[0])
+    .catch(error => console.log(error.message));
+}
 
-exports.checkUserExists = checkUserExists;
+exports.getUserPassword = getUserPassword;
