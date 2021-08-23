@@ -6,14 +6,18 @@ $(document).ready(function() {
         if(items[item].available) {
           $('.container').append(`
           <div class="menu-item">
-          <p> Name: ${items[item].name}</p>
-          <p> Cuisine: ${items[item].cuisine}</p>
-          <p> Price: ${items[item].price}</p>
-          <button >Order</button>
+            <img src="${items[item].image_url}" alt="food-picture"/>
+            <div class="menu-info">
+              <p> Name: ${items[item].name}</p>
+              <p> Cuisine: ${items[item].cuisine}</p>
+              <p> Price: ${items[item].price}</p>
+            </div>
+            <button >Order</button>
           </div>
         `);
         }
       }
     })
   });
+
 });
