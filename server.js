@@ -2,13 +2,13 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const express    = require("express");
-const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
-const bcrypt = require('bcrypt');
+const PORT          = process.env.PORT || 8080;
+const express       = require("express");
+const bodyParser    = require("body-parser");
+const sass          = require("node-sass-middleware");
+const app           = express();
+const morgan        = require('morgan');
+const bcrypt        = require('bcrypt');
 const cookieSession = require('cookie-session');
 
 // Define a source for Routes to Mount for each Resource
