@@ -16,14 +16,13 @@ $(document).ready(function(){
   const navHeight = getNavSize();
   const footerStart = getFooterSize();
   const heightLogin = footerStart - navHeight;
-  $(".mySlides").css('height', heightLogin);
+  // $(".mySlides").css('height', heightLogin);
   $("a[name='login']").on('click', (event)=> {
     event.preventDefault();
     $("#sidebar-wrapper").css('top', navHeight)
     $("#sidebar-wrapper").css('height', heightLogin)
     $("#sidebar-wrapper").toggle( "slide" );
   });
-
 
   $(".closebtn").on('click', (event)=> {
     event.preventDefault();

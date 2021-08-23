@@ -1,4 +1,5 @@
 nav {
+  background-color: black;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -11,15 +12,20 @@ nav {
   border-bottom: 2px solid black;
 
   a {
-    padding: 5px;
-    margin: 5px;
+    padding: 1rem;
+    margin: 1rem;
     text-decoration: none;
-    color: black;
+    color: white;
   }
 
   a:hover {
     transform: scale(1.1);
-    color: goldenrod;
+    color: gold;
+  }
+
+  .logo {
+    max-height: 10vh;
+    margin: auto;
   }
 
   .navAnchors {
@@ -33,14 +39,14 @@ nav {
   }
 
   h2 {
-    position:fixed;
-    left: 47%;
-    top:0;
+    font-weight: 900;
+    color: white;
+    &:hover{
+      color: goldenrod;
+    }
   }
 
   [name = login] {
     margin-right: 2rem;
   }
 }
-
-

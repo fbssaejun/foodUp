@@ -8,12 +8,14 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  z-index: 2;
 }
 
 /* Image containers */
 .mySlides {
   display:flex;
   justify-content: center;
+  height: 80vh;
   img {
     height: auto;
     width: 100%;
@@ -46,6 +48,13 @@
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
+}
+
+/*Styling for dot container */
+.dots-container {
+  position:relative;
+  z-index: 5;
+  margin-bottom: 5rem;
 }
 
 /* The dots/bullets/indicators */
