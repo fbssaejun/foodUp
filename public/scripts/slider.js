@@ -22,7 +22,13 @@ $(document).ready(function(){
     const heightLogin = footerStart - navHeight;
     $("#sidebar-wrapper").css('top', navHeight)
     $("#sidebar-wrapper").css('height', heightLogin)
-    $("#sidebar-wrapper").css('display', 'block');
+    $("#sidebar-wrapper").toggle( "slide" );
+  });
+
+
+  $(".closebtn").on('click', (event)=> {
+    event.preventDefault();
+    $("#sidebar-wrapper").toggle( "slide" );
   });
 
   $(".to-signin").on("click", function () {
