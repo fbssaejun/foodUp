@@ -1,18 +1,29 @@
   .container {
+  margin: 10vh;
   display:flex;
   align-items: center;
   justify-content: center;
   width:inherit;
+  height: 80vh;
   flex-wrap: wrap;
-  margin: auto;
+  overflow: auto;
 
   .menu-item {
-    display:flex;
+    display:inline-block;
     flex-direction: column;
-    padding: 100px 100px;
-    margin: 10px 10px;
+    text-align: center;
+    font-family: 'Sans-serif';
+    width: 10vw;
+    height: 18vh;
+    margin: 0.5%;
     background-color: khaki;
     border: 1px solid orange;
+    overflow-y: auto;
+
+    button {
+      border-radius: 10%;
+    }
+
   }
 
   .menu-item:hover {
