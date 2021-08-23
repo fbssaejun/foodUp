@@ -10,18 +10,77 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" tpye="text/css" />
     <link rel="stylesheet" href="/styles/slide-show.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/login.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/slide-show.js"></script>
+    <script type="text/javascript" src="/scripts/slider.js"></script>
   </head>
 
+
+<html>
   <body>
+
+     <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <div id = 'login_page'>
+      <a href="" class="closebtn">&times;</a>
+    </div>
+
+    <div class="form-cont">
+      <div class="top-buttons">
+        <button class="to-signup top-active-button">
+          Sign Up
+        </button>
+        <button class="to-signin">
+          Sign In
+        </button>
+      </div>
+
+      <div class="form form-signup">
+        <form action="#">
+          <lable>E-MAIL</lable>
+          <input type="email"
+                 placeholder="Your e-mail">
+          <lable>PASSWORD</lable>
+          <input type="password"
+                 placeholder="Your password">
+          <input type="submit"
+                 class="form-btn"
+                 value="Sign Up"/>
+          <br><br>
+          <a href="#" class="lined-link to-signin-link">I'm already member</a>
+        </form>
+      </div>
+
+      <div class="form form-signin">
+        <form action="#">
+          <lable>E-MAIL</lable>
+          <input type="email"
+                 placeholder="Your e-mail">
+          <lable>PASSWORD</lable>
+          <input type="password"
+                 placeholder="Your password">
+          <input type="submit"
+                 class="form-btn"
+                 value="Sign In"/>
+          <br><br>
+          <a href="#" class="lined-link to-signup-link">Create new account</a>
+        </form>
+      </div>
+    </div>
+    <div class="clear-fix"></div>
+
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+
     <nav>
       <a href="/customer_menu">Menu</a>
         <h2>FoodUp</h2>
       <div class="navAnchors">
-        <a href="/login">Login</a>
+        <a href="/login" name = "login">Login</a>
         <a href="">Register</a>
       </div>
     </nav>
