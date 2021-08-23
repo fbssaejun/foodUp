@@ -30,3 +30,18 @@ const getUserPassword = function(login) {
 }
 
 exports.getUserPassword = getUserPassword;
+
+/**
+ * Returns user ID
+ * @param  {Integer} email a user email address
+ * @return {Promise<{}>} A promise to the user with password for specified email
+ */
+ const getUserID = function(login) {
+  const email = String(login);
+  const queryString = `SELECT id FROM users WHERE email LIKE $1`;
+  return pool.query(queryString, [email])
+    .then(result => result.rows[0])
+    .catch(error => console.log(error.message));
+}
+
+exports.getUserID  = getUserID ;
