@@ -35,5 +35,11 @@ module.exports = function(router) {
       .render("login")
   })
 
+  router.get('/orders', (req, res) => {
+    res
+    .status(200)
+    .render("orders")
+})
+
   return router;
 }
