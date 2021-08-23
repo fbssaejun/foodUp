@@ -13,13 +13,12 @@ const getFooterSize = function() {
 
 
 $(document).ready(function(){
-
+  const navHeight = getNavSize();
+  const footerStart = getFooterSize();
+  const heightLogin = footerStart - navHeight;
+  $(".mySlides").css('height', heightLogin);
   $("a[name='login']").on('click', (event)=> {
     event.preventDefault();
-    const navHeight = getNavSize();
-    const footerStart = getFooterSize();
-    const startLogin = navHeight;
-    const heightLogin = footerStart - navHeight;
     $("#sidebar-wrapper").css('top', navHeight)
     $("#sidebar-wrapper").css('height', heightLogin)
     $("#sidebar-wrapper").toggle( "slide" );
