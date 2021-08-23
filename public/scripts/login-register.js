@@ -8,11 +8,12 @@ $(document).ready(function() {
       const login = $(this).children('input').first().val()
       const password =$(this).children('input').eq(1).val()
       const sentData = {login, password}
-      console.log(sentData)
       if(login && password) {
-        console.log("HELLO!")
-        $.post("/login", sentData);
+        $.post("/login", sentData)
+          .then(() => window.location.href = '/customer_menu')
+          .catch(() => $("#sidebar-wrapper").toggle( "slide" ))
       }
   });
+
 
 });
