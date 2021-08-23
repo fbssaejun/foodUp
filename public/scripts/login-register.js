@@ -7,7 +7,12 @@ $(document).ready(function() {
       event.preventDefault();
       const login = $(this).children('input').first().val()
       const password =$(this).children('input').eq(1).val()
-
+      const sentData = {login, password}
+      console.log(sentData)
+      if(login && password) {
+        console.log("HELLO!")
+        $.post("/login", sentData);
+      }
   });
 
 });
