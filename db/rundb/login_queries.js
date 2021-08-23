@@ -13,6 +13,9 @@ const checkUserExists = function(login) {
     .then(result => result.rows[0])
     .catch(error => console.log(error.message));
 };
+
+exports.checkUserExists = checkUserExists;
+
 /**
  * Returns password for a user in database
  * @param  {Integer} email a user email address
