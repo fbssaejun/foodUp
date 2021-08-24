@@ -22,9 +22,9 @@ INSERT INTO users (name, email, password, phone_number, customer, province,  cit
 
 INSERT INTO menu_items(name, price, kalories, cuisine, available, image_url)
   VALUES
-  ('Capetown Beef & Potato Stew', 9, 3245, 'African' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/96/82/9/picNWRZAP.jpg'),
-  ('Tunisian Kaftaji', 9, 536, 'African' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/submissions/recipe/33186/f7IRck0mRjS6w0q3DXDF_CCONE101H_60707_3004.jpg'),
-  ('South African Bobotie', 6, 1582, 'African' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/36/82/52/picC4Sotw.jpg'),
+  ('Rabbit Baked in Clay With Wild Mushrooms and Sour Cream', 5, 1920, 'European' , TRUE, 'https://i.ytimg.com/vi/BmgYaWsh7qE/maxresdefault.jpg'),
+  ('Costolette Di Maiale Con Salvia (Pork Chops With Sage)', 9, 536, 'European' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/46/03/82/401POVoIQw632YNaZcvb_IMG_0443.JPG'),
+  ('Pork Chops and Vinegar Peppers', 6, 1582, 'European' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/47/55/41/picHRmkaI.jpg'),
   ('Creole style Chicken & Sausage Jambalaya', 11, 1066, 'Latin American' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/28/27/30/4SvRV5hxSoC59qGH6EkA_DSC_0696.jpg'),
   ('Ground Turkey Spaghetti Sauce', 2, 1315, 'Latin American' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/29/25/78/QnnUKTaGQDS8d4tsxxMa_10710840_10205130045753512_6512750605145606829_n.jpg'),
   ('Russian Barley Mushroom Soup', 5.50, 666, 'European' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/48/56/96/pic8E7pKX.jpg'),
