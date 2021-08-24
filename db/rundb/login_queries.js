@@ -8,6 +8,7 @@ const pool = require('./db_connect');
  */
 const checkUserExists = function(login) {
   const email = String(login);
+
   const queryString = `SELECT count(*) FROM users WHERE email LIKE $1`;
   return pool.query(queryString, [email])
     .then(result => result.rows[0])
