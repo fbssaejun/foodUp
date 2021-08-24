@@ -2,6 +2,8 @@
 const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb/client_queries.js');
 const loginRegisterRoutes = require('./loginRegisterRoutes.js')
 // const bcrypt = require('bcrypt');
+const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb/client_queries.js')
+const {getOrderItemsForClient, addMenuItemsToOrder, addNewOrder, checkIfItemInOrder, incrementItemInOrder} = require('../db/rundb/orderQueries')
 
 module.exports = function(router) {
 
@@ -50,5 +52,62 @@ module.exports = function(router) {
     .render("orders")
 })
 
-  return router;
+//A helper function to check if an item already in order
+
+const checkAndAddItem = function(orderId, menuId) {
+  checkIfItemInOrder()
+    .then((result) => {
+      if (Number(result['count']) === 0) {
+        return addMenuItemsToOrder(orderId, menuId);
+      } else {
+        return incrementItemInOrder(orderId, menuId);
+      }
+    })
 }
+
+
+  router.post('/customer_menu', (req, res) => {
+
+
+    // There are few things missing here!!!
+    // userID
+    // MenuID
+    // Need to check if user is logged in
+
+
+    getOrderItemsForClient(userId)
+    .then(data => {
+      if(data.length === 0) {
+        addNewOrder()
+        .then(orderId => {
+          addMenuItemsToOrder(orderId)
+          .then(() => {
+            res
+            .status(200)
+            .json({ success : true })
+          })
+          .catch(() => {
+            res
+            .status(401)
+            .json({ success : false })
+          })
+        })
+      } else {
+        checkAndAddItem(orderId, menuId)
+        .then(() => {
+          res
+            .status(200)
+            .json({ success : true })
+        })
+        .catch(() => {
+          res
+            .status(400)
+            .json({succes : false})
+        });
+
+      }
+    })
+    return router;
+  })
+}
+
