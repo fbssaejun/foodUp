@@ -23,6 +23,7 @@ module.exports = function(router) {
     checkUserExists(login)
       .then((data) => data['count'])
       .then((data) => {
+        console.log(data)
         checkPassword(data, login, password)
           .then((result) => {
             if (result) {
@@ -42,9 +43,13 @@ module.exports = function(router) {
             }
           })
       })
+<<<<<<< HEAD
       .catch((error) => res
       .status(404)
       .json({result : false}));
+=======
+      .catch((error) => res.status(404).json({result : false}));
+>>>>>>> e371fb2780c3ac6948ffe8bf6087eebd20b1ec42
   });
 
   //logout route

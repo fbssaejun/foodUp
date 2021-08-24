@@ -51,10 +51,15 @@ INSERT INTO menu_items(name, price, kalories, cuisine, available, image_url)
   ('Pineapple Upside-Down Cake', 14, 1850, 'Scandinavian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/10/83/55/picHgGHE1.jpg'),
   ('Grilled Gorgonzola-Basil Burgers', 12, 600, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/1118907.jpg'),
   ('Pineapple Upside-Down Cake', 14, 1850, 'Scandinavian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/10/83/55/picHgGHE1.jpg'),
+<<<<<<< HEAD
   ('Grilled Gorgonzola-Basil Burgers', 13, 600, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/1118907.jpg'),
   ('Grilled Gorgonzola-Basil Burgers', 14, 600, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/1118907.jpg'),
   ('Grilled Gorgonzola-Basil Burgers', 15, 600, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/1118907.jpg'),
   ('Grilled Gorgonzola-Basil Burgers', 16, 600, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/1118907.jpg');
+=======
+  ('Grilled Gorgonzola-Basil Burgers', 12, 600, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/1118907.jpg');
+>>>>>>> e371fb2780c3ac6948ffe8bf6087eebd20b1ec42
+
 
 
 INSERT INTO orders(basket, ordered_at, completed_at, instructions, total_price, user_id)
