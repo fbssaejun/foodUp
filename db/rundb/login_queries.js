@@ -40,9 +40,10 @@ exports.getUserPassword = getUserPassword;
  */
  const getUserID = function(login) {
   const email = String(login);
-  const queryString = `SELECT id FROM users WHERE email LIKE $1`;
+  const queryString = `SELECT id, customer FROM users WHERE email LIKE $1`;
   return pool.query(queryString, [email])
-    .then(result => result.rows[0])
+    .then(result => {
+    return ({ 'id':result.rows[0].id, 'customer':result.rows[0].customer})})
     .catch(error => console.log(error.message));
 }
 
@@ -61,7 +62,7 @@ exports.getUserID  = getUserID ;
   vals.push(String(password));
   const queryString = `INSERT INTO users(name, email, password, phone_number, customer, province,  city, country, street, post_code)
                           VALUES('placeholder', $1, $2, 'placeholder', TRUE, 'placeholder', 'placeholder', 'placeholder', 'placeholder', 'placeholder')
-                          RETURNING id`;
+                          RETURNING id, customer`;
   return pool.query(queryString, vals)
     .then(result => result.rows[0].id)
     .catch(error => console.log(error.message));
