@@ -71,7 +71,7 @@ module.exports = function(router) {
                 .status(200)
                 .json({ success : true})
               })
-              .catch( (error) => {
+              .catch((error) => {
                 res
                 .status(401)
                 .json({succes : false})
