@@ -69,3 +69,22 @@ exports.getUserID  = getUserID ;
 }
 
 exports.addUser  = addUser;
+
+
+/**
+ * Returns user status: customer: true or false;
+ * @param  {Integer} id a user id
+ * @return {Promise<{}>} A promise to the user with password for specified email
+ */
+ const getUserStatus = function(id) {
+  const email = String(login);
+  const queryString = `SELECT customer FROM users WHERE id = $1`;
+  return pool.query(queryString, [email])
+    .then(result => result.rows[0].customer)
+    .catch(error => console.log(error.message));
+}
+
+exports.getUserStatus  = getUserStatus ;
+
+
+
