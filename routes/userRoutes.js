@@ -2,7 +2,7 @@
 const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb/client_queries.js');
 const loginRegisterRoutes = require('./loginRegisterRoutes.js')
 // const bcrypt = require('bcrypt');
-const {getOrderItemsForClient, addMenuItemsToOrder, addNewOrder, checkIfItemInOrder, incrementItemInOrder} = require('../db/rundb/orderQueries')
+const {getOrderItemsForClient, addMenuItemsToOrder, addNewOrder, checkIfItemInOrder, incrementItemInOrder, getOrderItems, decrementItemInOrder} = require('../db/rundb/orderQueries')
 
 module.exports = function(router) {
 
@@ -14,7 +14,8 @@ module.exports = function(router) {
   router.get('/customer_menu', (req, res) => {
     getMenuItemsForClients()
     .then((items) => {
-      const templateVars = {items}
+      userId = req.session.userid
+      const templateVars = {items, userId}
       res
       .status(200)
       .render("customer_menu", templateVars)})
@@ -45,12 +46,41 @@ module.exports = function(router) {
   // Mutate router object by adding routes for login/registration
   loginRegisterRoutes(router);
 
-  router.get('/orders', (req, res) => {
-    res
-    .status(200)
-    .render("orders")
+  router.get('/orders/:userId', (req, res) => {
+    userId = req.session.userid
+    getMenuItemsForClients()
+    .then(menus => {
+    getOrderItems(userId)
+    .then(result => {
+      res
+      .status(200)
+      .render('orders', {result, menus})
+    }
+  )
+ })
 })
 
+
+//PseudoCode
+  router.delete("/orders/:userId/delete", (req,res) => {
+    userId = req.session.userId
+    countItemsInorder(menu_id, order_id)
+    .then(data => {
+      if(data > 1) {
+        return decrementfunction()
+      } else {
+        return deleteFunction()
+      }
+    })
+    .then(result => 'someresultHere')
+    console.log(userId)
+  })
+
+
+
+/* =====================================================================================================================================
+  ====================================================== CREATE /ADD ORDER ROUTES =======================================================
+  =======================================================================================================================================*/
 //A helper function to check if an item already in order
 
 const checkAndAddItem = function(orderId, menuId) {
