@@ -1,0 +1,75 @@
+body{
+  background-color:lightblue;
+
+  .container{
+    width: 80vw;
+    background-color: black;
+    height: auto;
+    margin-top:11vh;
+    box-sizing: content-box;
+
+
+    .dashboard{
+      background-color: white;
+      margin: 0.1rem;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      overflow-y: scroll;
+      width: auto;
+
+
+      .header {
+        background-color: black;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin:0;
+        color: white;
+        min-height: 7vh;
+         h3{
+           margin: auto;
+           width: 15vw;
+           padding-left: 2rem;
+         }
+      }
+      form {
+        background-color: burlywood;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin:0;
+        padding: 0;
+
+         div{
+            width: 15vw;
+            padding-left: 2rem;
+
+         }
+         button {
+           width: 15vw;
+         }
+
+      }
+
+      // .custom-scroll {
+      //   &::-webkit-scrollbar {
+      //     width: 0.5rem;
+      //   }
+
+      //   &::-webkit-scrollbar-track {
+      //     background: transparent;
+      //   }
+
+      //   &::-webkit-scrollbar-thumb {
+      //     background: #333;
+      //   }
+      // }
+
+
+    }
+
+
+  }
+}
