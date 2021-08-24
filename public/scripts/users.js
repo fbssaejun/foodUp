@@ -47,5 +47,4 @@ const renderMenuItems = () => {
 
 $(document).ready(function() {
   renderMenuItems();
-  submitOrders();
 });
