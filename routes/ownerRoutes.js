@@ -1,7 +1,7 @@
 const {getMenuItems,getAllOrders,getMenuItem, getOrderDetails} = require('../db/rundb/owner_queries.js');
 const {getUserStatus} = require('../db/rundb/login_queries.js');
 
-//user this user for owner
+//user this user for owner alainarich@aol.com
 
 
 module.exports = function(router) {
@@ -12,10 +12,10 @@ module.exports = function(router) {
     getUserStatus(sessionId)
       .then((result) =>{
         console.log(result)
-        if (result) {
+        if (!result) {
           res
           .status(200)
-          .render("customer_menu", templateVars)
+          .render("owner_menu")
         } else {
           res
           .status(403)
