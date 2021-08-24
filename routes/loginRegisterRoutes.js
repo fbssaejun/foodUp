@@ -2,15 +2,15 @@ const {checkUserExists, getUserPassword, getUserID, addUser} = require('../db/ru
 const bcrypt = require('bcrypt');
 
 module.exports = function(router) {
-  ///Helper function for a promise:
+  ///Helper function for a promise: alainarich@aol.com
 
   const checkPassword = function(check, login, userpassword) {
     if (Number(check) === 1) {
       return getUserPassword(login)
       .then((systemPassword) => {
-        console.log("This is user password", userpassword)
-        console.log("This is database password:", systemPassword['password'])
-        console.log(bcrypt.compareSync(userpassword, systemPassword['password']))
+        // console.log("This is user password", userpassword)
+        // console.log("This is database password:", systemPassword['password'])
+        // console.log(bcrypt.compareSync(userpassword, systemPassword['password']))
         return (bcrypt.compareSync(userpassword, systemPassword['password']))
       }) ;
     }
@@ -23,18 +23,23 @@ module.exports = function(router) {
     checkUserExists(login)
       .then((data) => data['count'])
       .then((data) => {
-        console.log(data)
         checkPassword(data, login, password)
           .then((result) => {
             if (result) {
               getUserID(login)
-              .then((id)=> {
-                userID = id;
-                req.session.userid = userID.id;
-                console.log(req.session)
-                res
-                .status(200)
-                .json({ success: true });
+              .then((data)=> {
+                userID = data['id'];
+                const isCustomer = data['customer'];
+                req.session.userid = userID;
+                if (isCustomer) {
+                  res
+                  .status(200)
+                  .json({ success: 'customer'});
+                } else {
+                  res
+                  .status(200)
+                  .json({success: 'owner'})
+                }
               });
             } else {
               res
@@ -55,7 +60,6 @@ module.exports = function(router) {
         .status(200)
         .json({ success: true });
   });
-
 
   //New user registration route
   router.post('/register', (req, res) => {

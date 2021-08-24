@@ -45,17 +45,21 @@ exports.getMenuItem = getMenuItem;
  * @param  {Integer} id An id of order.
  * @return {Promise<{}>} A promise to the user.
  */
-const getOrderDetails = (id) => {
-  const queryString =   `SELECT *
+const getActiveOrderDetails = () => {
+  const queryString =   `SELECT orders.id, ordered_at, instructions, menu_id, quantity, menu_items.name as name
                         FROM orders
                         JOIN order_items
                         ON orders.id = order_items.order_id
-                        WHERE orders.id = $1;`
-  return db.query(queryString, [id])
+                        JOIN menu_items ON
+                        menu_items.id = menu_id
+                        WHERE
+                        completed_at IS NULL AND basket = FALSE
+                        ORDER BY orders.id;`
+  return db.query(queryString)
   .then(result => result.rows)
   .catch(error => console.error(error.message))
 }
 
-exports.getOrderDetails = getOrderDetails;
+exports.getActiveOrderDetails = getActiveOrderDetails;
 
 
