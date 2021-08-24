@@ -65,7 +65,9 @@ module.exports = function(router) {
       .then((data) => {
           if(Number(data['count']) === 0) {
             addUser(login, password)
-              .then(() => {
+              .then((id) => {
+                userID = id;
+                req.session.userid = userID.id;
                 res
                 .status(200)
                 .json({ success : true})

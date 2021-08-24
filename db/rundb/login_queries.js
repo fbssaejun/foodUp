@@ -61,9 +61,9 @@ exports.getUserID  = getUserID ;
   vals.push(String(password));
   const queryString = `INSERT INTO users(name, email, password, phone_number, customer, province,  city, country, street, post_code)
                           VALUES('placeholder', $1, $2, 'placeholder', TRUE, 'placeholder', 'placeholder', 'placeholder', 'placeholder', 'placeholder')
-                          RETURNING *`;
+                          RETURNING id`;
   return pool.query(queryString, vals)
-    .then(result => {console.log(result.rows)})
+    .then(result => result.rows[0].id)
     .catch(error => console.log(error.message));
 }
 
