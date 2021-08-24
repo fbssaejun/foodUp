@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Orders</title>
+    <title>Summary</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -21,6 +21,8 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/users.js"></script>
+    <script type="text/javascript" src="/scripts/orders.js"></script>
+
   </head>
 
 
@@ -30,11 +32,40 @@
       <h2>FoodUp</h2>
       <div class="navAnchors">
         <a href=""><i class="fas fa-shopping-basket"></i></a>
-        <a href="/orders">Orders</a>
         <a href="">Logout</a>
       </div>
     </nav>
-    <main class="orders">
+    <table class="orders">
+      <h1>Order Summary</h1>
+      <thead>
+        <tr>
+          <th scope="col">Item: </th>
+          <th scope="col">name</th>
+          <th scope="col">Cuisine</th>
+          <th scope="col">price</th>
+          <th scope="col">Quantity</th>
+        </tr>
+      </thead>
+      <tobdy>
+      <% for(let item of result) { %>
+        <% for(let menu of menus) { %>
+         <% if(menu.id === item.menu_id) { %>
+          <tr>
+            <td><img src= <%= menu.image_url %> /></td>
+              <td><%= menu.name %></td>
+              <td>Cuisine: <%= menu.cuisine %></td>
+              <td>Price: <%= menu.price %></td>
+              <td>Quantity: <%= item.quantity %></td>
+              <form method="POST" action="/orders/<%= userId %>/delete?_method=DELETE">
+                <td><button>Remove</button></td>
+              </form>
+            </tr>
+         <% } %>
+        <% } %>
+      <% } %>
+      </tobdy>
+    </table>
+    <button>Checkout</button>
     </main>
     <%- include('partials/footers') %>
   </body>

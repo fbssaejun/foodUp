@@ -28,21 +28,11 @@ const renderMenuItems = () => {
           url: `/customer_menu/${itemID}`
         })
       });
-
-
     })
   });
  }
 
-//Submit orders to orders icon, listens to submit from the form
-//  const submitOrders = function() {
-//   $('.container').submit(function(event) {
-//     event.preventDefault();
-//     const addedItem = $(event.target).children()
-//     console.log($(this))
-//     console.log(addedItem)
-//     });
-//   }
+
 
 
 $(document).ready(function() {

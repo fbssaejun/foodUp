@@ -31,6 +31,18 @@ const pool = require('./db_connect');
 
 exports.getOrderItemsForClient = getOrderItemsForClient;
 
+//Gets order'ED' items for specific client
+const getOrderItems = function(userId) {
+  const queryString = 'SELECT * FROM order_items JOIN orders ON order_id = orders.id WHERE user_id = $1;'
+  return pool.query(queryString, [userId])
+    .then(result => result.rows /*console.log(result.rows)*/)
+    .catch(error => console.log(error.message));
+}
+
+exports.getOrderItems = getOrderItems;
+
+
+
 const addMenuItemsToOrder = function(order_id, menu_id) {
   const queryString = `INSERT INTO order_items(quantity, order_id, menu_id) VALUES(1, $1, $2) RETURNING *;`
         return  pool.query(queryString, [order_id, menu_id])
@@ -73,3 +85,13 @@ const incrementItemInOrder = function(order_id, menu_id) {
 }
 
 exports.incrementItemInOrder = incrementItemInOrder;
+
+//Remove order quantity
+const decrementItemInOrder = function(order_id, menu_id) {
+  const queryString = `UPDATE order_items SET quantity = quantity - 1 WHERE menu_id = $2 AND order_id = $1`
+        return  pool.query(queryString, [order_id, menu_id])
+        .then(result =>  result)
+        .catch(error => console.log(error.message));
+}
+
+exports.decrementItemInOrder = decrementItemInOrder;
