@@ -10,7 +10,13 @@ $(document).ready(function() {
       const sentData = {login, password}
       if(login && password) {
         $.post("/login", sentData)
-          .then(() => window.location.href = '/customer_menu')
+          .then((result) => {
+            if(result.success === 'customer'){
+              window.location.href = '/customer_menu'
+            } else {
+              window.location.href = '/admin/dashboards'
+            }
+          })
           .catch(() => $("#sidebar-wrapper").toggle( "slide" ))
       }
   });
