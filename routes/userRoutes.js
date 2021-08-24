@@ -2,7 +2,6 @@
 const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb/client_queries.js');
 const loginRegisterRoutes = require('./loginRegisterRoutes.js')
 // const bcrypt = require('bcrypt');
-const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb/client_queries.js')
 const {getOrderItemsForClient, addMenuItemsToOrder, addNewOrder, checkIfItemInOrder, incrementItemInOrder} = require('../db/rundb/orderQueries')
 
 module.exports = function(router) {
