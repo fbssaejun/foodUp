@@ -13,10 +13,11 @@ const loadDashboardItems = () => {
             <form>
             <div>${item.id}</div>
              <div>${item.ordered_at}</div>
-             <div>Item: ${item.menu_id} Quantity: ${item.quantity}</div>
+             <div>Item: ${item.name}</div>
+             <div>${item.quantity}</div>
              <div>${item.instructions}</div>
-             <button type="submit" id = "Accept">Update!</button>
-             <button type="submit" id = "Ready!">Ready!</button>
+             <button type="submit" id = "Accept">Cancel</button>
+             <button type="submit" id = "Ready!">Ready</button>
              </div>
              </form>
       `)
@@ -25,7 +26,6 @@ const loadDashboardItems = () => {
 
   };
 
-
   const renderOrders = (data) => {
     const $container = $('.dashboard');
     $container.empty();
@@ -33,6 +33,7 @@ const loadDashboardItems = () => {
                     <h3>Order ID</h3>
                     <h3>Time Placed</h3>
                     <h3>Ordered Items</h3>
+                    <h3>Quantity</h3>
                     <h3>Instructions</h3>
                     <h3>Accept Order</h3>
                     <h3>Reject Order</h3>
