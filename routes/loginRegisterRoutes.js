@@ -1,4 +1,4 @@
-const {checkUserExists, getUserPassword, getUserID} = require('../db/rundb/login_queries.js');
+const {checkUserExists, getUserPassword, getUserID, addUser} = require('../db/rundb/login_queries.js');
 const bcrypt = require('bcrypt');
 
 module.exports = function(router) {
@@ -8,6 +8,9 @@ module.exports = function(router) {
     if (Number(check) === 1) {
       return getUserPassword(login)
       .then((systemPassword) => {
+        console.log("This is user password", userpassword)
+        console.log("This is database password:", systemPassword['password'])
+        console.log(bcrypt.compareSync(userpassword, systemPassword['password']))
         return (bcrypt.compareSync(userpassword, systemPassword['password']))
       }) ;
     }
@@ -39,7 +42,9 @@ module.exports = function(router) {
             }
           })
       })
-      .catch((error) => res.status(404).json({result : false}));
+      .catch((error) => res
+      .status(404)
+      .json({result : false}));
   });
 
   //logout route
@@ -53,8 +58,35 @@ module.exports = function(router) {
   });
 
 
-
+  //New user registration route
   router.post('/register', (req, res) => {
-
+    const {login, passwordUnHashed} = req.body;
+    const password = bcrypt.hashSync(passwordUnHashed, 10);
+    checkUserExists(login)
+      .then((data) => {
+          if(Number(data['count']) === 0) {
+            addUser(login, password)
+              .then(() => {
+                res
+                .status(200)
+                .json({ success : true})
+              })
+              .catch( (error) => {
+                res
+                .status(401)
+                .json({succes : false})
+              });
+          } else {
+            res
+             .status(400)
+             .json({success : false})
+          }
+      }
+      )
+      .catch((error) => {
+        res
+          .status(401)
+          .json({succes : false})
+      })
   })
 }
