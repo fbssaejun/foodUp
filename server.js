@@ -2,12 +2,15 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const express    = require("express");
-const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const PORT          = process.env.PORT || 8080;
+const express       = require("express");
+const bodyParser    = require("body-parser");
+const sass          = require("node-sass-middleware");
+const app           = express();
+const morgan        = require('morgan');
+const bcrypt        = require('bcrypt');
+const cookieSession = require('cookie-session');
+
 // Define a source for Routes to Mount for each Resource
 const userRoutes = require("./routes/userRoutes");
 const ownerRoutes = require("./routes/ownerRoutes");
@@ -21,13 +24,16 @@ const testRoutes = require("./routes/testRoutes");
 // app.use(morgan('dev'));
 
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
   debug: true,
   outputStyle: 'expanded'
 }));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']}));
 app.use(express.static("public"));
 
 //===============================================================================================================================

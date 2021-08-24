@@ -1,7 +1,14 @@
 // const bcrypt = require('bcrypt');
-const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb/client_queries.js')
+const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb/client_queries.js');
+const loginRegisterRoutes = require('./loginRegisterRoutes.js')
+// const bcrypt = require('bcrypt');
 
 module.exports = function(router) {
+
+  /* ====================================================================================================================================
+  ====================================================== GET ROUTES  ====================================================================
+  =======================================================================================================================================*/
+
 
   router.get('/customer_menu', (req, res) => {
     getMenuItemsForClients()
@@ -29,11 +36,13 @@ module.exports = function(router) {
       });
   });
 
-  router.get('/login', (req, res) => {
-      res
-      .status(200)
-      .render("login")
-  })
+
+
+  /* =====================================================================================================================================
+  ====================================================== LOGIN/REGISTRATION ROUTES =======================================================
+  =======================================================================================================================================*/
+  // Mutate router object by adding routes for login/registration
+  loginRegisterRoutes(router);
 
   return router;
 }
