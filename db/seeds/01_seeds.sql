@@ -49,7 +49,10 @@ INSERT INTO menu_items(name, price, kalories, cuisine, available, image_url)
   ('Buffalo Wings With Greek Yogurt Dip', 12, 900, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/3792008.jpg'),
   ('Caesar Chicken Wings', 13, 2707, 'Canadian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/79/61/8/picCoRA0s.jpg'),
   ('Pineapple Upside-Down Cake', 14, 1850, 'Scandinavian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/10/83/55/picHgGHE1.jpg'),
+  ('Grilled Gorgonzola-Basil Burgers', 12, 600, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/1118907.jpg'),
+  ('Pineapple Upside-Down Cake', 14, 1850, 'Scandinavian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/10/83/55/picHgGHE1.jpg'),
   ('Grilled Gorgonzola-Basil Burgers', 12, 600, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/1118907.jpg');
+
 
 
 INSERT INTO orders(basket, ordered_at, completed_at, instructions, total_price, user_id)
