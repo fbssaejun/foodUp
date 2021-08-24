@@ -77,9 +77,9 @@ exports.addUser  = addUser;
  * @return {Promise<{}>} A promise to the user with password for specified email
  */
  const getUserStatus = function(id) {
-  const email = String(login);
-  const queryString = `SELECT customer FROM users WHERE id = $1`;
-  return pool.query(queryString, [email])
+   console.log(id)
+  const queryString = `SELECT customer, id FROM users WHERE id = $1`;
+  return pool.query(queryString, [id])
     .then(result => result.rows[0].customer)
     .catch(error => console.log(error.message));
 }
