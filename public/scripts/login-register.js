@@ -24,12 +24,13 @@ $(document).ready(function() {
 
 // Catch default event handler for sign-up Button on login form,
  // supress it and replace with a custom one made with Ajax
- $('#form-signup').submit(function(event){
+ $('#sign-up').submit(function(event){
   event.preventDefault();
   const login = $(this).children('input').first().val()
-  const password =$(this).children('input').eq(1).val()
-  const sentData = {login, password}
-  if(login && password) {
+  const passwordUnHashed =$(this).children('input').eq(1).val()
+  const sentData = {login, passwordUnHashed}
+  console.log(sentData);
+  if(login && passwordUnHashed) {
     $.post("/register", sentData)
       .then(() => window.location.href = '/customer_menu')
       .catch(() => $("#sidebar-wrapper").toggle( "slide" ))
