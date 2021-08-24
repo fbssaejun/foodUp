@@ -12,6 +12,7 @@ const checkUserExists = function(login) {
   return pool.query(queryString, [email])
     .then(result => result.rows[0])
     .catch(error => console.log(error.message));
+
 };
 
 exports.checkUserExists = checkUserExists;
