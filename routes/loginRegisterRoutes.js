@@ -41,4 +41,16 @@ module.exports = function(router) {
       })
       .catch((error) => res.status(404).send("Error: ", error.message));
   });
+
+  //logout route
+
+  router.get('/logout', (req, res) => {
+    // Clear session cookies after user logout.
+      req.session = null;
+      console.log("I am here!")
+      res
+        .status(200)
+        .json({ success: true });
+  });
+
 }

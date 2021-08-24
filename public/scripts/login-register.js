@@ -15,5 +15,10 @@ $(document).ready(function() {
       }
   });
 
+  $("a[name = 'logout']").on('click', (event)=> {
+    event.preventDefault();
+    $.get('/logout')
+      .then(()=> window.location.href = '/')
+  });
 
 });
