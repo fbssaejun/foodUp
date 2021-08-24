@@ -1,5 +1,6 @@
 // const bcrypt = require('bcrypt');
 const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb/client_queries.js')
+const {addOrderItemsForClient} = require('../db/rundb/orderQueries')
 
 module.exports = function(router) {
 
@@ -40,6 +41,13 @@ module.exports = function(router) {
     .status(200)
     .render("orders")
 })
+
+  router.post('/orders', (req, res) => {
+    addOrderItemsForClient()
+    .then(data => {
+      console.log(res.json(data));
+    })
+  })
 
   return router;
 }
