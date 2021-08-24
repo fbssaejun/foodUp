@@ -44,5 +44,11 @@ module.exports = function(router) {
   // Mutate router object by adding routes for login/registration
   loginRegisterRoutes(router);
 
+  router.get('/orders', (req, res) => {
+    res
+    .status(200)
+    .render("orders")
+})
+
   return router;
 }
