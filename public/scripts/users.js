@@ -8,7 +8,7 @@ const renderMenuItems = () => {
           $('.container').append(`
           <form class="menu-item">
             <img src="${items[item].image_url}" alt="food-picture"/>
-            <div class="menu-info">
+            <div class="menu-info" id = "${items[item].id}">
               <p> Name: ${items[item].name}</p>
               <p> Cuisine: ${items[item].cuisine}</p>
               <p> Price: ${items[item].price}</p>
@@ -19,10 +19,16 @@ const renderMenuItems = () => {
         }
       }
 
-      $('.container').submit(function(event) {
+      $('.menu-item').submit(function(event) {
         event.preventDefault();
+       const itemID = $(event.target).children('div').attr('id')
 
-        });
+        $.ajax({
+          type: "POST",
+          url: `/customer_menu/${itemID}`
+        })
+      });
+
 
     })
   });

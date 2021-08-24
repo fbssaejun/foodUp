@@ -54,32 +54,39 @@ module.exports = function(router) {
 //A helper function to check if an item already in order
 
 const checkAndAddItem = function(orderId, menuId) {
-  checkIfItemInOrder()
+  return checkIfItemInOrder(orderId, menuId)
     .then((result) => {
+      // console.log("RESULT:", result)
       if (Number(result['count']) === 0) {
         return addMenuItemsToOrder(orderId, menuId);
+        // console.log(addMenuItemsToOrder(orderId, menuId));
       } else {
+        // console.log(incrementItemInOrder(orderId, menuId))
         return incrementItemInOrder(orderId, menuId);
       }
     })
 }
 
-
-  router.post('/customer_menu', (req, res) => {
+  router.post('/customer_menu/:menuID', (req, res) => {
 
 
     // There are few things missing here!!!
-    // userID
-    // MenuID
     // Need to check if user is logged in
-
-
+    const userId = req.session.userid;
+    const menuId = req.params.menuID;
+    let orderID;
     getOrderItemsForClient(userId)
     .then(data => {
+      if (data.length !== 0) {
+        // console.log(data)
+        orderID = data[0].id;
+
+      }
       if(data.length === 0) {
-        addNewOrder()
+        addNewOrder(new Date().toDateString(), 'good food', 50, userId)
         .then(orderId => {
-          addMenuItemsToOrder(orderId)
+
+          addMenuItemsToOrder(orderId, menuId)
           .then(() => {
             res
             .status(200)
@@ -92,7 +99,7 @@ const checkAndAddItem = function(orderId, menuId) {
           })
         })
       } else {
-        checkAndAddItem(orderId, menuId)
+        checkAndAddItem(orderID, menuId)
         .then(() => {
           res
             .status(200)
@@ -103,7 +110,6 @@ const checkAndAddItem = function(orderId, menuId) {
             .status(400)
             .json({succes : false})
         });
-
       }
     })
     return router;
