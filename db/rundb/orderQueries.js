@@ -17,6 +17,10 @@ const pool = require('./db_connect');
       }
       result.rows;
     })
+ }
+ exports.addOrderItemsForClient = addOrderItemsForClient;
+
+
  const getOrderItemsForClient = function(userId) {
   const queryString = 'SELECT * FROM orders JOIN users ON user_id = users.id WHERE user_id = $1 AND basket = true;'
   return pool.query(queryString, [userId])
