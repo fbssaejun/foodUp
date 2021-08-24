@@ -2,7 +2,7 @@ const {checkUserExists, getUserPassword, getUserID, addUser} = require('../db/ru
 const bcrypt = require('bcrypt');
 
 module.exports = function(router) {
-  ///Helper function for a promise:
+  ///Helper function for a promise: alainarich@aol.com
 
   const checkPassword = function(check, login, userpassword) {
     if (Number(check) === 1) {
@@ -30,9 +30,9 @@ module.exports = function(router) {
               .then((data)=> {
                 userID = data['id'];
                 const isCustomer = data['customer'];
+                req.session.userid = userID;
                 if (isCustomer) {
-                  req.session.userid = userID.id;
-                res
+                  res
                   .status(200)
                   .json({ success: 'customer'});
                 } else {
@@ -60,7 +60,6 @@ module.exports = function(router) {
         .status(200)
         .json({ success: true });
   });
-
 
   //New user registration route
   router.post('/register', (req, res) => {
