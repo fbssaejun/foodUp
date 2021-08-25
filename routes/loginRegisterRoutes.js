@@ -71,7 +71,7 @@ module.exports = function(router) {
             addUser(login, password)
               .then((id) => {
                 userID = id;
-                req.session.userid = userID.id;
+                req.session.userid = userID;
                 res
                 .status(200)
                 .json({ success : true})
