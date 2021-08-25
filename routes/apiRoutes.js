@@ -25,4 +25,27 @@ module.exports = function(router) {
         }
       })
   });
+
+  router.get('/menu', (req, res) => {
+    const sessionId = req.session.userid;
+    getUserStatus(sessionId)
+      .then((result) =>{
+        if (!result) {
+          getMenuItems()
+            .then((data) => {
+              res
+              .status(200)
+              .json(data)
+            })
+            .catch(error => console.error(error.message))
+        } else {
+          res
+          .status(403)
+          .send("❌ Permission Denied! You don't have permissions to view this page");
+        }
+      })
+  });
+
+  return router;
+
 }
