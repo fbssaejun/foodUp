@@ -54,6 +54,7 @@ const loadDashboardItems = () => {
 const renderItems = (data) => {
   const $container = $('#dashboard2');
   $container.empty();
+
   for (const element of data) {
     const $data = createMenuElement(element);
     $container.append($data);
@@ -61,16 +62,20 @@ const renderItems = (data) => {
 };
 
 const createMenuElement =function(item){
-
+let status = "YES"
+if (item.available) {
+  status = "NO";
+}
+console.log(item.cuisine)
 const $line = $(`
             <form>
-            <div>${item.id}</div>
-             <div>${timeago.format(item.ordered_at)}</div>
-             <div>Item: ${item.name}</div>
-             <div>${item.quantity}</div>
-             <div>${item.instructions}</div>
-             <button type="submit" id = "Accept">Cancel</button>
-             <button type="submit" id = "Ready!">Ready</button>
+            <div id = "name">${item.name}</div>
+             <div id = "price">$ ${item.price}</div>
+             <div id ="calories">${item.kalories}</div>
+             <div id ="cuisine">${item.cuisine}</div>
+             <div id = "status">${status}</div>
+             <button type="submit" id = "edit">Edit</button>
+             <button type="submit" id = "delete">Delete</button>
              </div>
              </form>
       `)
