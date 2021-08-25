@@ -22,17 +22,16 @@ INSERT INTO users (name, email, password, phone_number, customer, province,  cit
 
 INSERT INTO menu_items(name, price, kalories, cuisine, available, image_url)
   VALUES
-  ('Rabbit Baked in Clay With Wild Mushrooms and Sour Cream', 5, 1920, 'European' , TRUE, 'https://i.ytimg.com/vi/BmgYaWsh7qE/maxresdefault.jpg'),
+  ('Rabbit Baked in Clay With Wild Mushrooms and Sour Cream', 5, 1920, 'European' , TRUE, 'https://whatsinthepan.com/wp-content/uploads/2018/06/How-to-cook-Rabbit-in-Wine-and-Garlic-Sauce-9.jpg'),
   ('Costolette Di Maiale Con Salvia (Pork Chops With Sage)', 9, 536, 'European' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/46/03/82/401POVoIQw632YNaZcvb_IMG_0443.JPG'),
-  ('Pork Chops and Vinegar Peppers', 6, 1582, 'European' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/47/55/41/picHRmkaI.jpg'),
+  ('Pork Chops and Vinegar Peppers', 6, 1582, 'European' , TRUE, 'https://cdn.leitesculinaria.com/wp-content/uploads/fly-images/110793/pork-chops-vinegar-peppers-recipe-1200x900-c.jpg.optimal.jpg'),
   ('Creole style Chicken & Sausage Jambalaya', 11, 1066, 'Latin American' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/28/27/30/4SvRV5hxSoC59qGH6EkA_DSC_0696.jpg'),
-  ('Russian Barley Mushroom Soup', 5.50, 666, 'European' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/48/56/96/pic8E7pKX.jpg'),
-  ('Russian Potato Salad', 4, 1513, 'European' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/33/11/99/picM7ScXG.jpg'),
-  ('Chicken Kiev, a Yummy & Healthy Version', 13, 3100, 'European' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/24/21/82/pic8xFh8l.jpg'),
+  ('Russian Barley Mushroom Soup', 5.50, 666, 'European' , TRUE, 'https://www.cilantroandcitronella.com/wp-content/uploads/2017/07/mushroom-barley-soup-photo-2.jpg'),
+  ('Russian Potato Salad', 4, 1513, 'European' , TRUE, 'https://valentinascorner.com/wp-content/uploads/2018/04/Olivier-Russian-Potato-Salad-4.jpg'),
+  ('Chicken Kiev, a Yummy & Healthy Version', 13, 3100, 'European' , TRUE, 'https://www.recipetineats.com/wp-content/uploads/2021/05/Chicken-Kiev_9.jpg'),
   ('Spicy Sambal Shrimp', 1068, 2400, 'Indonesian' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/3175335.jpg'),
-  ('Beef Satay', 12, 2400, 'Indonesian' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/5639693.jpg'),
   ('Indonesia Sate (Meat Kabobs)', 13, 690, 'Indonesian' , TRUE, 'https://images.media-allrecipes.com/userphotos/250x250/1010865.jpg'),
-  ('Beef Satay', 12, 2400, 'Indonesian' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/5639693.jpg'),
+  ('Beef Satay', 12, 2400, 'Indonesian' , TRUE, 'https://www.kitchensanctuary.com/wp-content/uploads/2020/05/Beef-Satay-square-FS-46.jpg'),
   ('Vietnamese-Style Shrimp Soup', 5.50, 179, 'Vietnamese' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/4581096.jpg'),
   ('Loch Ness mMnster', 3.50, 3500, 'SouthParkian' , TRUE, 'https://cdn.pastrychefonline.com/wp-content/uploads/2017/10/a-pumpkin-strudel-2.jpg'),
   ('Pho', 11, 3000, 'Vietnamese' , TRUE, 'https://images.media-allrecipes.com/userphotos/250x250/818297.jpg'),
