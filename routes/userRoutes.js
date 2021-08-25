@@ -2,7 +2,7 @@
 const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb/client_queries.js');
 const loginRegisterRoutes = require('./loginRegisterRoutes.js')
 // const bcrypt = require('bcrypt');
-const {getOrderItemsForClient, addMenuItemsToOrder, addNewOrder, checkIfItemInOrder, incrementItemInOrder, getOrderItems, decrementItemInOrder} = require('../db/rundb/orderQueries')
+const {getOrderItemsForClient, addMenuItemsToOrder, addNewOrder, checkIfItemInOrder, incrementItemInOrder, getOrderItems, decrementItemInOrder, countItemsInorder, deleteItemInOrder} = require('../db/rundb/orderQueries')
 
 module.exports = function(router) {
 
@@ -63,16 +63,16 @@ module.exports = function(router) {
 
 //PseudoCode
   router.delete("/orders/:userId/delete", (req,res) => {
-    userId = req.session.userId
+    userId = req.session.userid
     countItemsInorder(menu_id, order_id)
     .then(data => {
       if(data > 1) {
-        return decrementfunction()
+        return decrementItemInOrder()
       } else {
-        return deleteFunction()
+        return deleteItemInOrder()
       }
     })
-    .then(result => 'someresultHere')
+    .then(result => 'do something with this')
     console.log(userId)
   })
 

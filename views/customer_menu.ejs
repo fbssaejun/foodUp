@@ -30,9 +30,14 @@
       <a href="/"><i class="fas fa-arrow-left"></i></a>
       <h2>FoodUp</h2>
       <div class="navAnchors">
-        <a href=""><i class="fas fa-shopping-basket"></i></a>
+        <% if(userId) { %>
+          <a href=""><i class="fas fa-shopping-basket"></i></a>
         <a href="/orders/<%= userId %>">Orders</a>
         <a href="" name = 'logout'>Logout</a>
+        <%  } else { %>
+
+          <%  }  %>
+
       </div>
     </nav>
     <main class="container">
