@@ -21,7 +21,7 @@ module.exports = function(router) {
         } else {
           res
           .status(403)
-          .send("❌ Permission Denied! You don't have permissions to view this page");
+          .send("❌ Permission Denied! YoMORGENSHTERNu don't have permissions to view this page");
         }
       })
   });

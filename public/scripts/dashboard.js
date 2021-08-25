@@ -62,9 +62,9 @@ const renderItems = (data) => {
 };
 
 const createMenuElement =function(item){
-let status = "YES"
+let status = "NO"
 if (item.available) {
-  status = "NO";
+  status = "YES";
 }
 console.log(item.cuisine)
 const $line = $(`
