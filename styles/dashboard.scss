@@ -1,7 +1,7 @@
 body{
-  background-color:lightblue;
+  background-color:silver;
 
-  .container{
+  .container, .d-2{
     width: 80vw;
     background-color: black;
     height: auto;
@@ -12,7 +12,7 @@ body{
     border: 0.5rem outset grey;
 
 
-    .dashboard{
+    .dashboard, .dashboard-2{
 
       background-color: white;
       display: flex;
@@ -43,21 +43,18 @@ body{
          &:hover{
           background-color: grey;
          }
-
       }
-
-
-
-
     }
-
-
   }
 }
 
 .d-2 {
   position: absolute;
   top: 40vh;
+    .header{
+      background-color: navy
+    }
+
 }
 
 .header {

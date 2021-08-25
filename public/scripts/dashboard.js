@@ -37,7 +37,8 @@ const loadDashboardItems = () => {
   };
 
   const renderOrders = (data) => {
-    const $container = $('.dashboard');
+    const $container = $('#dashboard1');
+    console.log("Container:" ,$container)
     $container.empty();
     for (const element of data) {
       const $data = createDashBoardElement(element);
@@ -51,22 +52,36 @@ const loadDashboardItems = () => {
 ========================================================================================================================================*/
 
 const renderItems = (data) => {
-  const $container = $('.d-2');
+  const $container = $('#dashboard2');
   $container.empty();
   for (const element of data) {
-    const $data = createDashBoardElement(element);
+    const $data = createMenuElement(element);
     $container.append($data);
   }
 };
 
+const createMenuElement =function(item){
 
+const $line = $(`
+            <form>
+            <div>${item.id}</div>
+             <div>${timeago.format(item.ordered_at)}</div>
+             <div>Item: ${item.name}</div>
+             <div>${item.quantity}</div>
+             <div>${item.instructions}</div>
+             <button type="submit" id = "Accept">Cancel</button>
+             <button type="submit" id = "Ready!">Ready</button>
+             </div>
+             </form>
+      `)
+    console.log($line)
+    return $line;
 
-
-
-
+  };
 
 
 
 $(document).ready(function() {
   loadDashboardItems();
+  loadDashboardMenu();
 });
