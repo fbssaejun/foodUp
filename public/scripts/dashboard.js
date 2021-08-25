@@ -98,8 +98,6 @@ const $line = $(`
          </form>
   `)
 
-
-
     //SHOW EDIT FORM
     $line.on('submit', (event) => {
       event.preventDefault();
@@ -151,8 +149,6 @@ const $line = $(`
     return $first.append($line, $edit);
 
   };
-
-
 
 
 $(document).ready(function() {
