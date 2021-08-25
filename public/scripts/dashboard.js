@@ -66,7 +66,6 @@ let status = "NO"
 if (item.available) {
   status = "YES";
 }
-console.log(item.cuisine)
 const $line = $(`
             <form>
             <div id = "name">${item.name}</div>
@@ -80,9 +79,17 @@ const $line = $(`
              </form>
       `)
     console.log($line)
+
+    // $form.on('submit', (event) => {
+    //   event.preventDefault();
+    //   console.log($(this));
+
+    // });
+
     return $line;
 
   };
+
 
 
 
