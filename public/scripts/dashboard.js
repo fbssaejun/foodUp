@@ -2,17 +2,27 @@
 const loadDashboardItems = () => {
     $.get('/api/orders')
     .then((data) => {
-      console.log(data)
       renderOrders(data);
     });
   };
+
+  const loadDashboardMenu = () => {
+    $.get('/api/menu')
+    .then((data) => {
+      renderItems(data);
+    });
+  };
+
+/* =====================================================================================================================================
+=======================================  CREATE FIRST DASHBOARD  =======================================================================
+========================================================================================================================================*/
 
   const createDashBoardElement =function(item){
 
     const $line = $(`
             <form>
             <div>${item.id}</div>
-             <div>${item.ordered_at}</div>
+             <div>${timeago.format(item.ordered_at)}</div>
              <div>Item: ${item.name}</div>
              <div>${item.quantity}</div>
              <div>${item.instructions}</div>
@@ -29,21 +39,29 @@ const loadDashboardItems = () => {
   const renderOrders = (data) => {
     const $container = $('.dashboard');
     $container.empty();
-    const $header = `<div class="header">
-                    <h3>Order ID</h3>
-                    <h3>Time Placed</h3>
-                    <h3>Ordered Items</h3>
-                    <h3>Quantity</h3>
-                    <h3>Instructions</h3>
-                    <h3>Accept Order</h3>
-                    <h3>Reject Order</h3>
-                    </div>`
-    $container.append($header);
     for (const element of data) {
       const $data = createDashBoardElement(element);
       $container.append($data);
     }
   };
+
+
+  /* =====================================================================================================================================
+=======================================  CREATE SECOND DASHBOARD  =======================================================================
+========================================================================================================================================*/
+
+const renderItems = (data) => {
+  const $container = $('.d-2');
+  $container.empty();
+  for (const element of data) {
+    const $data = createDashBoardElement(element);
+    $container.append($data);
+  }
+};
+
+
+
+
 
 
 
