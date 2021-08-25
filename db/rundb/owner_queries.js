@@ -6,7 +6,7 @@ const db = require('./db_connect');
  */
 
 const getMenuItems = () => {
-  return db.query('SELECT * FROM menu_items')
+  return db.query('SELECT * FROM menu_items ORDER BY id')
     .then((response) => response.rows)
     .catch((error) => console.error(error.message));
 }
@@ -33,7 +33,7 @@ exports.getAllOrders = getAllOrders;
  */
 
 const getMenuItem = (id) => {
-  return db.query('SELECT * FROM menu_items WHERE id = $1', [id])
+  return db.query('SELECT * FROM menu_items WHERE id = $1 ORDER BY id', [id])
   .then((result) => result.rows[0])
   .catch((error) => console.error(error.message));
 }
@@ -60,6 +60,28 @@ const getActiveOrderDetails = () => {
   .catch(error => console.error(error.message))
 }
 
+
 exports.getActiveOrderDetails = getActiveOrderDetails;
+
+
+
+
+const updateMenuItem = (id,newName,newPrice,newCalories,newCuisine,newPicture,newAvailability) => {
+  const queryString =   `UPDATE menu_items SET name = $2, price = $3, kalories = $4, cuisine = $5, available = $6, image_url = $7 WHERE id = $1 RETURNING *`
+  return db.query(queryString, [id,newName,newPrice,newCalories,newCuisine,newAvailability, newPicture])
+  .then(result => result.rows)
+  .catch(error => console.error(error.message))
+}
+
+// id SERIAL PRIMARY KEY NOT NULL,
+//   name VARCHAR(255) NOT NULL,
+//   price INTEGER NOT NULL,
+//   description TEXT,
+//   image_url VARCHAR(255),
+//   kalories INTEGER,
+//   cuisine VARCHAR(255),
+//   available BOOLEAN DEFAULT FALSE
+// );
+exports.updateMenuItem  = updateMenuItem;
 
 
