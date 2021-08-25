@@ -113,19 +113,39 @@ const $line = $(`
 
     $edit.on('submit', (event) => {
       event.preventDefault();
-      console.log($edit.find('#name').val())
+      console.log($edit)
 
       if (event.originalEvent.submitter.id === "cancel"){
         $edit.slideUp("slow");
-      } else {
+      } else if (event.originalEvent.submitter.id === "edit-submit"){
         const newName = $edit.find('#name').val();
         const newPrice = $edit.find('#price').val();
-        const newCalories = $edit.find('#price').val();
+        const newCalories = $edit.find('#calories').val();
         const newCuisine = $edit.find('#cuisine').val();
         const newPicture = $edit.find('#image').val();
+        let newAvailability;
+        if ($('#True').is(":checked")) {
+           newAvailability = true;
+        } else {
+          newAvailability = false;
+        }
+        const request = {
+          id: item.id,
+          newName,
+          newPrice,
+          newCalories,
+          newCuisine,
+          newPicture,
+          newAvailability
+        }
+        $.ajax({
+          type: "POST",
+          url: `../api/menu/update/item/${item.id}`,
+          data: request,
+        })
+        .then(() => loadDashboardMenu())
 
       }
-
     })
 
     return $first.append($line, $edit);
