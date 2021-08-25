@@ -31,14 +31,12 @@ const loadDashboardItems = () => {
              </div>
              </form>
       `)
-    console.log($line)
     return $line;
 
   };
 
   const renderOrders = (data) => {
     const $container = $('#dashboard1');
-    console.log("Container:" ,$container)
     $container.empty();
     for (const element of data) {
       const $data = createDashBoardElement(element);
@@ -80,10 +78,11 @@ const $line = $(`
       `)
     console.log($line)
 
-    // $form.on('submit', (event) => {
-    //   event.preventDefault();
-    //   console.log($(this));
-    // });
+    $line.on('submit', (event) => {
+      event.preventDefault();
+      console.log(item.name);
+      console.log((event));
+    });
 
     return $line;
 
