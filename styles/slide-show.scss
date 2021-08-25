@@ -5,19 +5,19 @@
   width: 100%;
   position: relative;
   top:10vh;
+  height: 73vh;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  z-index: 2;
+  z-index: 1;
 }
 
 /* Image containers */
 .mySlides {
   display:flex;
   justify-content: center;
-  height: 80vh;
   img {
-    height: auto;
+    height: 80vh;
     width: 100%;
   }
 }
@@ -30,7 +30,7 @@
   width: auto;
   margin-top: -22px;
   padding: 16px;
-  color: black;
+  color: goldenrod;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
@@ -47,14 +47,14 @@
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(237, 238, 231, 0.8);
 }
 
 /*Styling for dot container */
 .dots-container {
   position:relative;
   z-index: 5;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
 }
 
 /* The dots/bullets/indicators */
@@ -90,3 +90,32 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+
+
+
+//Order Button
+ a.button1{
+    display : inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.5em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+    }
+    a.button1:hover{
+    color:#000000;
+    background-color:#FFFFFF;
+    }
+    @media all and (max-width:30em){
+     a.button1{
+    display:block;
+    margin:0.4em auto;
+    }
+    }
+
