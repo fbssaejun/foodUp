@@ -249,3 +249,32 @@ body{
 #form{
   display: hidden;
 }
+
+#picture {
+  position: relative;
+  z-index: 200;
+  width: 40vh;
+  height: 40vh;
+  border-radius: 5%;
+  margin:0;
+  padding:0;
+  border-bottom: 0rem solid cadetblue;
+}
+
+#button-storage {
+  margin:0.5rem;
+  max-height: 3vh;
+  padding:0;
+}
+
+#pic-store {
+  position: relative;
+  width: auto;
+  bottom: 11.4rem;
+  right:0;
+  width: 20vh;
+  height: 30vh;
+  border-bottom: none !important;
+  margin: 0;
+  padding: 0;
+}
