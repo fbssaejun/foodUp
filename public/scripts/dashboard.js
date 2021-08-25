@@ -104,7 +104,7 @@ const $line = $(`
     $line.on('submit', (event) => {
       event.preventDefault();
       if (event.originalEvent.submitter.id === "edit") {
-        $("#edit-form").slideDown("slow");
+        $($edit).slideDown("slow");
       } else {
           console.log("This is delete!")
         }
