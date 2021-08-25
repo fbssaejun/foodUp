@@ -57,7 +57,7 @@ body{
   position: absolute;
   top: 40vh;
     .header{
-      background-color: navy
+      background-color: black;
     }
 
 }
@@ -166,7 +166,47 @@ body{
     }
     input{
       margin:0;
-      padding: 0;
+      padding:0;
     }
   }
+
+  #new-item{
+    position: absolute;
+    z-index: 150;
+  }
+
+  #foot1 {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+
+
+}
+
+ /* Styling for the button responsible for scrolling to top */
+#add-item{
+  position: fixed;
+  z-index:1000;
+  bottom:40vh;
+  right:2em;
+  background-color:green;
+  border: none;
+  border-radius: 2%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  height: 5em;
+  width: 5em;
+  margin: 0 2% auto 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 20px 3px rgba(3, 2, 2, 0.15), 0 0px 6px 3px rgba(252, 252, 252, 0.35);
+
+  &:hover {
+    background-color: darkgreen;
+    box-shadow: 0px 0px 20px 5px rgb(255, 253, 253, 0.15), 0 0px 6px 5px rgba(252, 252, 252, 0.35);
+  }
+
 }
