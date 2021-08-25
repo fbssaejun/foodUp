@@ -53,7 +53,7 @@
               <td>Cuisine: <%= menu.cuisine %></td>
               <td>Price: <%= menu.price %></td>
               <td>Quantity: <%= item.quantity %></td>
-              <form class="remove-item">
+              <form method="POST" action="/orders/<%= item.order_id %>/<%= menu.id %>/delete" class="remove-item">
                 <td><button type="submit">Remove</button></td>
               </form>
             </tr>
