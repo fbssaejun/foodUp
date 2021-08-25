@@ -7,34 +7,20 @@ body{
     height: auto;
     margin-top:11vh;
     box-sizing: content-box;
+    overflow-y: auto;
+    max-height: 35vh;
+    border: 0.5rem outset grey;
 
 
     .dashboard{
-      box-sizing: padding-box;
+
       background-color: white;
-      margin: 0.1rem;
       display: flex;
       justify-content: center;
       flex-direction: column;
-      overflow-y: scroll;
       width: auto;
-      max-height: 40vh;
-      padding-top: 6rem;
 
 
-      .header {
-        background-color: black;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        color: white;
-        min-height: 7vh;
-         h3{
-           margin: auto;
-           width: 15vw;
-           padding-left: 2rem;
-         }
-      }
       form {
         background-color: burlywood;
         display: flex;
@@ -54,25 +40,53 @@ body{
            margin: 0.2rem;
          }
 
+         &:hover{
+          background-color: grey;
+         }
+
       }
 
-      // .custom-scroll {
-      //   &::-webkit-scrollbar {
-      //     width: 0.5rem;
-      //   }
 
-      //   &::-webkit-scrollbar-track {
-      //     background: transparent;
-      //   }
-
-      //   &::-webkit-scrollbar-thumb {
-      //     background: #333;
-      //   }
-      // }
 
 
     }
 
 
+  }
+}
+
+.d-2 {
+  position: absolute;
+  top: 40vh;
+}
+
+.header {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  position: relative;
+  margin:auto;
+  height: 5vh;
+  width: 80vw;
+   h3{
+     margin: auto;
+     width: 15vw;
+     padding-left: 2rem;
+   }
+}
+
+#custom-scroll {
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: burlywood;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: grey;
   }
 }
