@@ -5,7 +5,7 @@
   width: 100%;
   position: relative;
   top:10vh;
-  height: 73vh;
+  height: 68.5vh;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -62,7 +62,7 @@
   cursor: pointer;
   height: 15px;
   width: 15px;
-  margin: 0 2px;
+  margin: 0 8px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
@@ -96,7 +96,7 @@
 //Order Button
  a.button1{
     display : inline-block;
-    padding:0.35em 1.2em;
+    padding: 2em 3em;
     border:0.1em solid #FFFFFF;
     margin:0 0.3em 0.3em 0;
     border-radius:0.5em;

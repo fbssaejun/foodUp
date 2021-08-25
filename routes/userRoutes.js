@@ -46,7 +46,7 @@ module.exports = function(router) {
   // Mutate router object by adding routes for login/registration
   loginRegisterRoutes(router);
 
-  router.get('/orders/:userId', (req, res) => {
+  router.get('/orders', (req, res) => {
     userId = req.session.userid
     getMenuItemsForClients()
     .then(menus => {
@@ -61,19 +61,32 @@ module.exports = function(router) {
 })
 
 
-//PseudoCode
-  router.delete("/orders/:userId/delete", (req,res) => {
+  router.post("/orders/:orderId/:itemId/delete", (req,res) => {
     userId = req.session.userid
-    countItemsInorder(menu_id, order_id)
-    .then(data => {
-      if(data > 1) {
-        return decrementItemInOrder()
-      } else {
-        return deleteItemInOrder()
-      }
+    itemId = req.params.itemId
+    orderId = req.params.orderId
+
+    getOrderItems(userId)
+    .then(orders => {
+
+      const menu_id = itemId;
+      const order_id = orderId;
+
+      countItemsInorder(order_id, menu_id)
+      .then(data => {
+        console.log("Count:" ,data)
+        if(data[0].quantity > 1) {
+          return decrementItemInOrder(order_id, menu_id)
+        } else {
+          return deleteItemInOrder(order_id, menu_id)
+        }
+      })
     })
-    .then(result => 'do something with this')
-    console.log(userId)
+    .then(result => {
+      res
+      .status(200)
+      .redirect('/orders')
+    })
   })
 
 

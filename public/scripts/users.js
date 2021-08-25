@@ -28,13 +28,14 @@ const renderMenuItems = () => {
           url: `/customer_menu/${itemID}`
         })
       });
+
     })
   });
  }
 
 
 
-
 $(document).ready(function() {
   renderMenuItems();
 });
+

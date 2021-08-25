@@ -22,8 +22,10 @@ INSERT INTO users (name, email, password, phone_number, customer, province,  cit
 
 INSERT INTO menu_items(name, price, kalories, cuisine, available, image_url)
   VALUES
-  ('Rabbit Baked in Clay With Wild Mushrooms and Sour Cream', 5, 1920, 'European' , TRUE, 'https://whatsinthepan.com/wp-content/uploads/2018/06/How-to-cook-Rabbit-in-Wine-and-Garlic-Sauce-9.jpg'),
-  ('Costolette Di Maiale Con Salvia (Pork Chops With Sage)', 9, 536, 'European' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/46/03/82/401POVoIQw632YNaZcvb_IMG_0443.JPG'),
+  ('Amatriciana Pasta', 14, 1850, 'Italian' , TRUE, 'https://photos.bigoven.com/recipe/hero/bucatini-allamatriciana-1f2b22.jpg'),
+  ('Mushroom Risotto', 12, 600, 'Italian' , TRUE, 'https://lovingitvegan.com/wp-content/uploads/2020/08/Vegan-Mushroom-Risotto-24.jpg'),
+  ('Rabbit Baked in Clay With Wild Mushrooms and Sour Cream', 20, 1920, 'European' , TRUE, 'https://whatsinthepan.com/wp-content/uploads/2018/06/How-to-cook-Rabbit-in-Wine-and-Garlic-Sauce-9.jpg'),
+  ('Costolette Di Maiale Con Salvia (Pork Chops With Sage)', 19, 536, 'European' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/46/03/82/401POVoIQw632YNaZcvb_IMG_0443.JPG'),
   ('Pork Chops and Vinegar Peppers', 6, 1582, 'European' , TRUE, 'https://cdn.leitesculinaria.com/wp-content/uploads/fly-images/110793/pork-chops-vinegar-peppers-recipe-1200x900-c.jpg.optimal.jpg'),
   ('Creole style Chicken & Sausage Jambalaya', 11, 1066, 'Latin American' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/28/27/30/4SvRV5hxSoC59qGH6EkA_DSC_0696.jpg'),
   ('Russian Barley Mushroom Soup', 5.50, 666, 'European' , TRUE, 'https://www.cilantroandcitronella.com/wp-content/uploads/2017/07/mushroom-barley-soup-photo-2.jpg'),
@@ -47,8 +49,6 @@ INSERT INTO menu_items(name, price, kalories, cuisine, available, image_url)
   ('Victorian Spring Posy Cake', 12, 2000, 'Scottish' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/36/21/06/picIPflPU.jpg'),
   ('Buffalo Wings With Greek Yogurt Dip', 12, 900, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/3792008.jpg'),
   ('Caesar Chicken Wings', 13, 2707, 'Canadian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/79/61/8/picCoRA0s.jpg'),
-  ('Pineapple Upside-Down Cake', 14, 1850, 'Scandinavian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/10/83/55/picHgGHE1.jpg'),
-  ('Grilled Gorgonzola-Basil Burgers', 12, 600, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/1118907.jpg'),
   ('Pineapple Upside-Down Cake', 14, 1850, 'Scandinavian' , TRUE, 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/10/83/55/picHgGHE1.jpg'),
   ('Grilled Gorgonzola-Basil Burgers', 12, 600, 'American' , TRUE, 'https://images.media-allrecipes.com/userphotos/560x315/1118907.jpg');
 

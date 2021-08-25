@@ -100,6 +100,10 @@ th, td {
 
 }
 
+.orders::-webkit-scrollbar {
+  display: none;
+}
+
 
   /* only animate if the device supports hover */
   @media (hover: hover) {
