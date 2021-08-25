@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/styles/dashboard.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.full.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/dashboard.js"></script>
     <script type="text/javascript" src="/scripts/login-register.js"></script>
@@ -34,27 +35,33 @@
         <a href="" name = 'logout'>Logout</a>
       </div>
     </nav>
-    <main class="container">
-        <div class = "dashboard">
-          <!-- <div class="header">
+    <main class="container " id = "custom-scroll" >
+      <div class="header">
+        <h3>Order ID</h3>
+        <h3>Time Placed</h3>
+        <h3>Ordered Items</h3>
+        <h3>Quantity</h3>
+        <h3>Instructions</h3>
+        <h3>Accept Order</h3>
+        <h3>Reject Order</h3>
+      </div>
+        <div class = "dashboard" ></div>
+        </main>
+        <div class="container d-2" id = "custom-scroll" >
+          <div class="header">
             <h3>Order ID</h3>
             <h3>Time Placed</h3>
             <h3>Ordered Items</h3>
+            <h3>Quantity</h3>
             <h3>Instructions</h3>
             <h3>Accept Order</h3>
             <h3>Reject Order</h3>
-          </div> -->
-                <!-- <form>
-                <div>ORDER ID</div>
-                <div>Time Placed</div>
-                <div>Ordered Items</div>
-                <div>Instructions</div>
-                <button type="submit" id = "Accept">Update!</button>
-                <button type="submit" id = "Ready!">Ready!</button>
-                </div>
-              </form> -->
-        </div>
-    </main>
+          </div>
+            <div class = "dashboard" ></div>
+    </div>
+
+
+
     <%- include('partials/footers') %>
   </body>
 
