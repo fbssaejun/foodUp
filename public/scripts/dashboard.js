@@ -83,7 +83,6 @@ const $line = $(`
     // $form.on('submit', (event) => {
     //   event.preventDefault();
     //   console.log($(this));
-
     // });
 
     return $line;
