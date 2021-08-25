@@ -1,52 +1,42 @@
 body{
-  background-color:lightblue;
+  background-color:silver;
+  box-sizing: border-box;
 
-  .container{
+  .container, .d-2{
     width: 80vw;
     background-color: black;
     height: auto;
     margin-top:11vh;
     box-sizing: content-box;
+    overflow-y: auto;
+    max-height: 35vh;
+    border: 0.5rem outset grey;
 
 
-    .dashboard{
-      box-sizing: padding-box;
+    .dashboard, .dashboard-2{
+
       background-color: white;
-      margin: 0.1rem;
       display: flex;
       justify-content: center;
       flex-direction: column;
-      overflow-y: scroll;
       width: auto;
-      max-height: 40vh;
-      padding-top: 6rem;
 
 
-      .header {
-        background-color: black;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        color: white;
-        min-height: 7vh;
-         h3{
-           margin: auto;
-           width: 15vw;
-           padding-left: 2rem;
-         }
-      }
       form {
+        box-sizing: border-box;
         background-color: burlywood;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
-        margin:0.1rem, 0;
+        justify-content: space-evenly;
+        border-bottom: 0.5px solid white;
+
         padding: 0;
 
          div{
             width: 15vw;
             padding-left: 2rem;
+            text-align: center;
 
          }
          button {
@@ -54,25 +44,85 @@ body{
            margin: 0.2rem;
          }
 
+         &:hover{
+          // background-color: grey;
+          box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.12) inset, 0 0.2rem 0.4rem rgba(0, 0, 0, 0.24) inset,  0 -0.5rem 0.5rem 0 rgba(0, 0, 0, 0.24) inset;
+         }
       }
+    }
+  }
+}
 
-      // .custom-scroll {
-      //   &::-webkit-scrollbar {
-      //     width: 0.5rem;
-      //   }
-
-      //   &::-webkit-scrollbar-track {
-      //     background: transparent;
-      //   }
-
-      //   &::-webkit-scrollbar-thumb {
-      //     background: #333;
-      //   }
-      // }
-
-
+.d-2 {
+  position: absolute;
+  top: 40vh;
+    .header{
+      background-color: navy
     }
 
+}
 
+.header {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: white;
+  position: relative;
+  margin:auto;
+  height: 5vh;
+  padding: auto;
+  width: 79.5vw;
+    h3{
+     margin: 1rem;
+     width: 15vw;
+     text-align: center;
+   }
+
+}
+
+#custom-scroll {
+  &::-webkit-scrollbar {
+    width: 0.5rem;
   }
+
+  &::-webkit-scrollbar-track {
+    background: burlywood;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: grey;
+  }
+}
+
+#name {
+  width: 22rem;
+  min-width: 22rem;
+  max-width: 50rem;
+  padding: 0;
+  margin: 0;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#price, #calories, #status {
+  @extend #name;
+  width: 5rem;
+  min-width: 5rem;
+  max-width: 5rem;
+}
+
+#cuisine {
+  @extend #name;
+  width: 10rem;
+  min-width: 10rem;
+  max-width: 10rem;
+}
+#edit, #delete {
+  @extend #name;
+  width: 20rem;
+  min-width: 20rem;
+  max-width: 20rem;
+  margin: 0.2rem;
 }
