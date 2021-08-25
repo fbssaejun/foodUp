@@ -73,15 +73,27 @@ const updateMenuItem = (id,newName,newPrice,newCalories,newCuisine,newPicture,ne
   .catch(error => console.error(error.message))
 }
 
-// id SERIAL PRIMARY KEY NOT NULL,
-//   name VARCHAR(255) NOT NULL,
-//   price INTEGER NOT NULL,
-//   description TEXT,
-//   image_url VARCHAR(255),
-//   kalories INTEGER,
-//   cuisine VARCHAR(255),
-//   available BOOLEAN DEFAULT FALSE
-// );
 exports.updateMenuItem  = updateMenuItem;
+
+
+const createMenuItem = (Name,Price,Calories,Cuisine,Picture,Availability) => {
+  const queryString =   `INSERT INTO menu_items (name, price, kalories,  cuisine, image_url, available, description) VALUES($1, $2, $3, $4, $5, $6, 'no description') RETURNING *`
+  return db.query(queryString, [Name,Price,Calories,Cuisine,Picture,Availability])
+  .then(result => result.rows)
+  .catch(error => console.error(error.message))
+}
+
+exports.createMenuItem  = createMenuItem;
+
+
+const deleteMenuItem = (itemid) => {
+  const queryString =   `DELETE FROM menu_items WHERE id = $1;`
+  return db.query(queryString, [itemid])
+  .then(result => result.rows)
+  .catch(error => console.error(error.message))
+}
+
+exports.deleteMenuItem  = deleteMenuItem;
+
 
 
