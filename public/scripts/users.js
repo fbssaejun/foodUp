@@ -28,14 +28,34 @@ const renderMenuItems = () => {
           url: `/customer_menu/${itemID}`
         })
       });
+
     })
   });
  }
 
 
+ const removeMenuItems = () => {
+  $('body').ready((e) => {
+        $('.remove-item').submit(function(event) {
+          event.preventDefault();
+          const itemId = $(event.target)
+          const orderId = 1;
+
+          console.log("Item ID: ", itemId)
+
+          $.ajax({
+            type: "POST",
+            url: `/orders/${orderId}/${itemId}/delete`
+          })
+        });
+      });
+
+
+ }
+
 
 
 $(document).ready(function() {
   renderMenuItems();
-  submitOrders();
+  removeMenuItems();
 });

@@ -61,19 +61,35 @@ module.exports = function(router) {
 })
 
 
-//PseudoCode
-  router.delete("/orders/:userId/delete", (req,res) => {
+  router.post("/orders/:orderId/:itemId/delete", (req,res) => {
     userId = req.session.userid
-    countItemsInorder(menu_id, order_id)
-    .then(data => {
-      if(data > 1) {
-        return decrementItemInOrder()
-      } else {
-        return deleteItemInOrder()
-      }
-    })
-    .then(result => 'do something with this')
+    itemId = req.params.itemId
+    orderId = req.params.orderId
     console.log(userId)
+
+    getOrderItems(userId)
+    .then(orders => {
+
+      menu_id = orders.menu_id;
+      order_id = orders.order_id;
+
+      console.log("Menu id: ", menu_id)
+      console.log("order id: ", order_id)
+
+      countItemsInorder(menu_id, order_id)
+      .then(data => {
+        if(data > 1) {
+          return decrementItemInOrder()
+        } else {
+          return deleteItemInOrder()
+        }
+      })
+    })
+    // .then(result => {
+    //   res
+    //   .status(200)
+    //   .render('orders')
+    // })
   })
 
 

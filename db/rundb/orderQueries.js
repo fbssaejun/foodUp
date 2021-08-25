@@ -112,7 +112,7 @@ exports.deleteItemInOrder = deleteItemInOrder;
 
 //Count quantity for menu item
 const countItemsInorder = function(order_id, menu_id) {
-  const queryString = `SELECT COUNT(quantity) FROM order_items WHERE order_id = $2 AND menu_id = $1;`
+  const queryString = `SELECT COUNT(quantity) FROM order_items WHERE order_id = $1 AND menu_id = $2;`
         return  pool.query(queryString, [order_id, menu_id])
         .then(result =>  result)
         .catch(error => console.log(error.message));
