@@ -104,9 +104,12 @@ const $line = $(`
       if (event.originalEvent.submitter.id === "edit") {
         $($edit).slideDown("slow");
       } else {
-          console.log("This is delete!")
+        $.ajax({
+          type: "POST",
+          url: `/api/menu/delete/item/${item.id}`
+        })
+        .then(() => loadDashboardMenu())
         }
-
     });
 
     $edit.on('submit', (event) => {
@@ -155,3 +158,5 @@ $(document).ready(function() {
   loadDashboardItems();
   loadDashboardMenu();
 });
+
+// exports.loadDashboardMenu = loadDashboardMenu;
