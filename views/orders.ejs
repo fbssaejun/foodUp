@@ -34,7 +34,7 @@
   <body>
     <nav>
       <a href="/customer_menu"><i class="fas fa-arrow-left"></i></a>
-      <img src="./images/Screen Shot 2021-08-26 at 11.13.14 AM.png" class = "logo" />
+      <img src="./images/main-logo.png" class = "logo" />
       <div class="navAnchors">
         <% if(userId) { %>
           <span class="user-nav">Hope you're hungry,  <%= user[0].email %> !</span>
@@ -59,9 +59,12 @@
         <h1 class="order-summary">Order Summary</h1>
       </thead>
       <tobdy>
-      <% for(let item of result) { %>
+        <% for(let item of result) { %>
+
         <% for(let menu of menus) { %>
          <% if(menu.id === item.menu_id) { %>
+          <% if(!item.basket) {%>
+            <% } else {%>
           <tr>
             <td><img src= <%= menu.image_url %> /></td>
               <td><%= menu.name %></td>
@@ -69,9 +72,10 @@
               <td>Price: <%= menu.price %></td>
               <td>Quantity: <%= item.quantity %></td>
               <form method="POST" action="/orders/<%= item.order_id %>/<%= menu.id %>/delete" class="remove-item">
-                <td><button type="submit"><i class="far fa-trash-alt"></i></button></td>
+                <td class="remove"><button type="submit"><i class="far fa-trash-alt"></i></button></td>
               </form>
             </tr>
+          <% } %>
          <% } %>
         <% } %>
       <% } %>
@@ -81,16 +85,19 @@
     <% let totalPrice = 0; %>
     <% for(let item of result) { %>
       <% for(let menu of menus){ %>
+        <% if(!item.basket) {%>
+          <% } else {%>
         <% if(menu.id === item.menu_id) { %>
           <% if(item.quantity > 1) {%>
           <% totalPrice += (menu.price * item.quantity) %>
         <% } else {%>
           <% totalPrice += menu.price%>
+          <% } %>
         <% } %>
       <% } %>
     <% } %>
   <% } %>
-       <p>Total Price : $<span class="total-price"><%= totalPrice %></span></p>
+       <p><span class="total-price">Total Price : $ <%= totalPrice %></span></p>
   <form class="checkout-button">
     <button class="button">
       <span class="button__text">
