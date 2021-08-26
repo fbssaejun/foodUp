@@ -25,9 +25,7 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/users.js"></script>
     <script type="text/javascript" src="/scripts/orders.js"></script>
-
   </head>
-
 
   <body>
     <nav>
@@ -38,8 +36,18 @@
         <a href="">Logout</a>
       </div>
     </nav>
+    <div class ='checkout-message'>
+      <h2>Thanks for ordering!</h2>
+      <p>We have sent you a message, your order will be ready shortly.</p>
+      <span class="checkmark">
+        <div class="checkmark_stem"></div>
+        <div class="checkmark_kick"></div>
+    </span>
+    </div>
     <table class="orders">
-      <h1>Order Summary</h1>
+      <br>
+      <br>
+      <br>
       <thead>
         <h1>Order Summary</h1>
       </thead>
@@ -62,7 +70,21 @@
       <% } %>
       </tobdy>
     </table>
-    <p>Total Price : $<span id = "total-price"></span> 0</span></p>
+
+    <% let totalPrice = 0; %>
+    <% for(let item of result) { %>
+      <% for(let menu of menus){ %>
+        <% if(menu.id === item.menu_id) { %>
+          <% if(item.quantity > 1) {%>
+          <% totalPrice += (menu.price * item.quantity) %>
+        <% } else {%>
+          <% totalPrice += menu.price%>
+        <% } %>
+      <% } %>
+    <% } %>
+  <% } %>
+       <p>Total Price : $<span class="total-price"><%= totalPrice %></span></p>
+  <form class="checkout-button">
     <button class="button">
       <span class="button__text">
         <span>C</span><span>h</span>e</span><span>c</span><span>k</span><span>o</span><span>u</span><span>t</span>
@@ -94,8 +116,7 @@
 
       </svg>
     </button>
-    </main>
+  </form>
     <%- include('partials/footers') %>
   </body>
-
 </html>

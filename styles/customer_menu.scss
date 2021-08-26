@@ -30,8 +30,8 @@
     button {
       border-radius: 5%;
       opacity: 0.7;
-      color:white;
-      background-color: rgba(0,0,0,0.8);
+      color:black;
+      background-color: goldenrod;
     }
   }
 
@@ -182,3 +182,37 @@ th, td {
     right: 0.2rem;
     height: 140%;
   }
+
+//After Checkout
+
+.checkout-message {
+  display: none;
+  position:absolute;
+  top: 10em;
+  align-items: center;
+  text-align: center;
+
+  .checkmark {
+    display:inline-block;
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+
+.checkmark_stem {
+    position: absolute;
+    width:3px;
+    height:20px;
+    background-color:rgb(11, 199, 11);
+    left:11px;
+    top:-5.5px;
+}
+
+.checkmark_kick {
+    position: absolute;
+    width:3px;
+    height:3px;
+    background-color: rgb(11, 199, 11);
+    left:8px;
+    top:12px;
+}
+}
