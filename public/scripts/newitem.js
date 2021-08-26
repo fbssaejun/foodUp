@@ -59,9 +59,9 @@ $(document).ready(function () {
       const Cuisine = $form.find('#cuisine').val();
       const Picture = $form.find('#image').val();
       let Availability;
-      if ($edit.find('#true').is(":checked")) {
+      if ($form.find('#true').is(":checked")) {
         Availability = 1;
-     } else if ($edit.find('#false').is(":checked")){
+     } else if ($form.find('#false').is(":checked")){
        Availability = 0;
      }
       const request = {
