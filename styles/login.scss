@@ -6,7 +6,7 @@
     right:0;
     top:0;
     height: 100vh;
-    z-index: 100;
+    z-index: 3000;
     display: none;
     padding: 0;
     border-top-left-radius: 5%;
@@ -82,7 +82,7 @@
 .top-active-button {
   color: #fff !important;
   box-shadow: 0 0 20px #2a2a2a;
-  background: linear-gradient(rgba(237, 238, 231, 0.5),rgba(237, 238, 231, 0.5)) !important;
+  background: linear-gradient(rgba(237, 238, 231, 0.5),green) !important;
   transition: all 0.3s ease;
 
 }
