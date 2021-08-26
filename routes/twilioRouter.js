@@ -8,11 +8,23 @@ const recPhoneNumber = process.env.TARGET_NUMBER;
 const twilioNumber = process.env.TWILIO_NUMBER;
 
 
-client.messages
-  .create({
-    body: 'Hello from Node 2',
-    to: recPhoneNumber,
-    from: twilioNumber
-  })
-  .then((message) => console.log(message.sid))
-  .catch((error) => console.log(error.message))
+  const sendTextToCustomer = (text) => {
+  client.messages
+    .create({
+      body: text,
+      to: recPhoneNumber,
+      from: twilioNumber
+    })
+    .then((message) => console.log(message.sid))
+    .catch((error) => console.log(error.message))
+
+  };
+
+
+
+
+
+
+
+
+
