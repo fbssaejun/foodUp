@@ -18,8 +18,10 @@ const loadDashboardMenu = () => {
 
 const createDashBoardElement = function (item) {
   let acceptedID = "accept"
+  let textAcc = "Accept"
   if(item['accepted'][0] === true) {
-    acceptedID = "acceptedID"
+    acceptedID = "acceptedID";
+    textAcc = "Accepted";
   }
 
   const $first = $('<div>').addClass('product');
@@ -28,7 +30,7 @@ const createDashBoardElement = function (item) {
             <div>${item.id}</div>
              <div>${timeago.format(item.ordered_at)}</div>
              <button type="submit" id = "view">View Details</button>
-             <button type="submit" id = ${acceptedID}>Accept</button>
+             <button type="submit" id = ${acceptedID}>${textAcc}</button>
              <button type="submit" id = "complete">Complete</button>
              <button type="submit" id = "reject">Reject</button>
              </div>
