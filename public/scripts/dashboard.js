@@ -46,7 +46,7 @@ const createDashBoardElement = function (item) {
     const $rejectform = $(`<div id = "reject-slide">
         <form>
           <div id = "reject-container">
-          <div><label>Enter Rejection Text</label><input id = "reject-txt" value = ""></input></div>
+          <div><label>Enter Rejection Text</label><input id = "reject-txt" value = "" type = "text"></input></div>
           <button type="submit" id = "btn-reject">Send Rejection</button>
           </div>
         </form>
@@ -55,7 +55,7 @@ const createDashBoardElement = function (item) {
     const $acceptform = $(`<div id = "accept-slide">
     <form>
       <div id = "accept-container">
-      <div><label>Enter Notification for Customer</label><input id = "accept-txt" value = ""></input></div>
+      <div><label>Enter Notification for Customer</label><input id = "accept-txt" value = "" type = "text"></input></div>
       <button type="submit" id = "btn-accept">Accept Order</button>
       </div>
     </form>
@@ -211,10 +211,10 @@ const createMenuElement = function (item) {
       `)
   const $edit = $(`
          <form id = "edit-form">
-         <div><label>Edit Name</label><input id = "name" value = "${item.name}"></input></div>
-         <div><label>Edit Price</label><input id = "price" value = ${item.price}></input></div>
-         <div><label>Edit Calories</label><input id ="calories" value = ${item.kalories}></input></div>
-         <div><label>Edit Cuisine</label><input id ="cuisine" value = "${item.cuisine}"></input></div>
+         <div><label>Edit Name</label><input id = "name" value = "${item.name}" type = "text"></input></div>
+         <div><label>Edit Price</label><input id = "price" value = ${item.price} type = "number"></input></div>
+         <div><label>Edit Calories</label><input id ="calories" value = ${item.kalories} type = "number"></input></div>
+         <div><label>Edit Cuisine</label><input id ="cuisine" value = "${item.cuisine}" type = "text"></input></div>
          <div><label>Edit Picture</label><input id = "image" value = "${item.image_url}"></input></div>
          <div> <fieldset id = "group1">
          <div><label for="true">Show On the Menu</label>
@@ -294,14 +294,21 @@ const createMenuElement = function (item) {
     }
   })
 
-  const $image = $edit.find('#image')
+  const $image = $edit.children('#image')
+  console.log($edit);
   $image.on("paste", function () {
+    console.log($image)
     let element = this;
+    console.log(this)
     setTimeout(function () {
-      var text = $(element).val();
+      let text = $($image).val();
+      if (text.substring(0,4) !== "http"){
+        text = "https://" + text;
+      }
       $image.attr("src", text);
       $("#pic-store-edit").empty();
       const $newImage = `<img src=${text} alt="No Picture Loaded" id = "picture-edit"></img>`
+      console.log($newImage)
       $("#pic-store-edit").append($newImage);
     }, 100);
   });
