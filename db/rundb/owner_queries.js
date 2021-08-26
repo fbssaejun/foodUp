@@ -54,7 +54,7 @@ const getActiveOrderDetails = () => {
                         menu_items.id = menu_id
                         WHERE
                         completed_at IS NULL AND basket = FALSE
-                        ORDER BY orders.id;`
+                        ORDER BY ordered_at DESC;`
   return db.query(queryString)
   .then(result => result.rows)
   .catch(error => console.error(error.message))
@@ -96,4 +96,12 @@ const deleteMenuItem = (itemid) => {
 exports.deleteMenuItem  = deleteMenuItem;
 
 
+const deleteOrder= (order_id) => {
+  const orderID= Number(order_id);
+  const queryString = `DELETE FROM orders WHERE id = $1;`
+  return db.query(queryString, [orderID])
+  .then(result => result.rows)
+  .catch(error => console.error(error.message))
+}
 
+exports.deleteOrder  = deleteOrder;

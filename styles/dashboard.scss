@@ -293,3 +293,71 @@ body{
  right:5rem;
  bottom: 9rem;
 }
+
+#show-order{
+  display: none;
+  flex-direction: column;
+  background-color: cadetblue !important;
+}
+
+#show-row{
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  background-color: transparent;
+  border-bottom: 0.5px solid white;
+  margin: 0.5rem;
+}
+
+#item-show{
+  width: 20vw;
+  margin: auto;
+  background-color: transparent;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.product{
+  background-color: cadetblue
+}
+
+#reject-slide{
+  @extend #show-order;
+  display: hidden;
+  background-color: cadetblue !important;
+  justify-content: center;
+}
+#reject-container{
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: cadetblue;
+  form {
+    background-color: cadetblue;
+  }
+  #btn-reject{
+    margin-left: 2rem;
+    width: auto;
+    min-width: 10vw;
+    height: auto;
+    right: 10vw;
+  }
+
+  div{
+    width: auto;
+    display: flex;
+    margin: 0.5rem;
+      label {
+        margin-right: 5rem;
+        color: whitesmoke;
+        display: flex;
+        font-weight: bold;
+        align-items: center;
+      }
+      input {
+        min-width: 20vw;
+      }
+
+  }
+}

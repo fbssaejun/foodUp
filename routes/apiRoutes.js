@@ -1,4 +1,4 @@
-const {getMenuItems,getAllOrders,getMenuItem, getActiveOrderDetails, updateMenuItem, createMenuItem, deleteMenuItem} = require('../db/rundb/owner_queries.js');
+const {getMenuItems,getAllOrders,getMenuItem, getActiveOrderDetails, updateMenuItem, createMenuItem, deleteMenuItem, deleteOrder} = require('../db/rundb/owner_queries.js');
 const {getBusketOrderForUser, changeStatusFromBusketFalseToTrue} = require('../db/rundb/orderQueries.js')
 const {getUserStatus} = require('../db/rundb/login_queries.js');
 
@@ -159,6 +159,32 @@ module.exports = function(router) {
         }
       })
   });
+
+
+  router.post('/order/:orderid/delete', (req, res) => {
+    const order_id = req.params.orderid;
+    const sessionId = req.session.userid;
+    const {Name,Price,Calories,Cuisine,Picture,Availability} = req.body;
+    getUserStatus(sessionId)
+      .then((result) =>{
+        if (!result) {
+          deleteOrder(order_id)
+            .then((data) => {
+              res
+              .status(200)
+              .json(data)
+            })
+            .catch(error => console.error(error.message))
+        } else {
+          res
+          .status(403)
+          .send("❌ Permission Denied! You don't have permissions to view this page  ❌");
+        }
+      })
+  });
+
+
+
 
   return router;
 

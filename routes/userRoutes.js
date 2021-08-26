@@ -130,6 +130,8 @@ const checkAndAddItem = function(orderId, menuId) {
     const userId = req.session.userid;
     const menuId = req.params.menuID;
     let orderID;
+    let today = new Date()
+    today.toISOString().split('T')[0]
     getOrderItemsForClient(userId)
     .then(data => {
       if (data.length !== 0) {
@@ -138,7 +140,7 @@ const checkAndAddItem = function(orderId, menuId) {
 
       }
       if(data.length === 0) {
-        addNewOrder(new Date().toDateString(), 'good food', 50, userId)
+        addNewOrder(today, 'good food', 50, userId)
         .then(orderId => {
 
           addMenuItemsToOrder(orderId, menuId)
