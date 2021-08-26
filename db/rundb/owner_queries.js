@@ -54,7 +54,7 @@ const getActiveOrderDetails = () => {
                         menu_items.id = menu_id
                         WHERE
                         completed_at IS NULL AND basket = FALSE
-                        ORDER BY orders.id;`
+                        ORDER BY ordered_at DESC;`
   return db.query(queryString)
   .then(result => result.rows)
   .catch(error => console.error(error.message))
