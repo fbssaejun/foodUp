@@ -232,9 +232,18 @@ const createMenuElement = function (item) {
 
   //SHOW EDIT FORM
   $line.on('submit', (event) => {
+
+
+    if (!item.available) {
+      $edit.find('#false').prop('checked', true);
+    }
     event.preventDefault();
     if (event.originalEvent.submitter.id === "edit") {
-      $($edit).slideDown("slow");
+      if($($edit).css("display") === "none") {
+        $($edit).slideDown("slow");
+      } else {
+        $($edit).slideUp("slow");
+      }
     } else {
       $.ajax({
         type: "POST",
@@ -246,7 +255,6 @@ const createMenuElement = function (item) {
 
   $edit.on('submit', (event) => {
     event.preventDefault();
-
 
     if (event.originalEvent.submitter.id === "cancel") {
       $edit.slideUp("slow");
