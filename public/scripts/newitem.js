@@ -1,5 +1,4 @@
 
-// const loadDashboardMenu = require('./dashboard')
 
 const $form = $(`
   <form id = "edit-form">
@@ -83,9 +82,10 @@ $(document).ready(function () {
       loadDashboardMenu()});
     }
   });
+
   const $image = $form.find('#image')
   $image.on("paste", function(){
-    var element = this;
+    let element = this;
   setTimeout(function () {
     var text = $(element).val();
     $image.attr("src", text);
