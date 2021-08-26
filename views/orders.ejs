@@ -15,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&family=Montserrat:wght@100&display=swap" rel="stylesheet">
 
     <!--View style css links-->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -25,15 +28,19 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/users.js"></script>
     <script type="text/javascript" src="/scripts/orders.js"></script>
+    <script type="text/javascript" src="/scripts/login-register.js"></script>
   </head>
 
   <body>
     <nav>
       <a href="/customer_menu"><i class="fas fa-arrow-left"></i></a>
-      <h2>FoodUp</h2>
+      <img src="./images/Screen Shot 2021-08-26 at 11.13.14 AM.png" class = "logo" />
       <div class="navAnchors">
-        <a href=""><i class="fas fa-shopping-basket"></i></a>
-        <a href="">Logout</a>
+        <% if(userId) { %>
+          <span class="user-nav">Hope you're hungry,  <%= user[0].email %> !</span>
+          <%  }  %>
+        <a href="/customer_menu">Menu</a>
+        <a href="" name='logout'>Logout</a>
       </div>
     </nav>
     <div class ='checkout-message'>
@@ -49,7 +56,7 @@
       <br>
       <br>
       <thead>
-        <h1>Order Summary</h1>
+        <h1 class="order-summary">Order Summary</h1>
       </thead>
       <tobdy>
       <% for(let item of result) { %>
@@ -62,7 +69,7 @@
               <td>Price: <%= menu.price %></td>
               <td>Quantity: <%= item.quantity %></td>
               <form method="POST" action="/orders/<%= item.order_id %>/<%= menu.id %>/delete" class="remove-item">
-                <td><button type="submit">Remove</button></td>
+                <td><button type="submit"><i class="far fa-trash-alt"></i></button></td>
               </form>
             </tr>
          <% } %>

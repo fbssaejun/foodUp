@@ -33,7 +33,7 @@ exports.getOrderItemsForClient = getOrderItemsForClient;
 
 //Gets order'ED' items for specific client
 const getOrderItems = function(userId) {
-  const queryString = 'SELECT * FROM order_items JOIN orders ON order_id = orders.id WHERE user_id = $1;'
+  const queryString = 'SELECT * FROM order_items JOIN orders ON order_id = orders.id WHERE user_id = $1 ORDER BY menu_id;'
   return pool.query(queryString, [userId])
     .then(result => result.rows /*console.log(result.rows)*/)
     .catch(error => console.log(error.message));

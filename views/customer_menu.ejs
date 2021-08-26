@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&family=Montserrat:wght@100&display=swap" rel="stylesheet">
 
     <!--View style css links-->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -28,16 +31,15 @@
   <body>
     <nav>
       <a href="/"><i class="fas fa-arrow-left"></i></a>
-      <h2>FoodUp</h2>
+      <img src="./images/Screen Shot 2021-08-26 at 11.13.14 AM.png" class = "logo" />
       <div class="navAnchors">
         <% if(userId) { %>
-          <a href=""><i class="fas fa-shopping-basket"></i></a>
-        <a href="/orders">Orders</a>
-        <a href="" name = 'logout'>Logout</a>
+          <span class="user-nav">Hope you're hungry,  <%= result[0].email %> !</span>
+          <a href="/orders"><i class="fas fa-shopping-basket"></i></a>
+          <a href="" name='logout'>Logout</a>
         <%  } else { %>
-
+          <a href="/">Login to place an Order!</a>
           <%  }  %>
-
       </div>
     </nav>
     <main class="container">

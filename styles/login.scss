@@ -82,7 +82,7 @@
 .top-active-button {
   color: #fff !important;
   box-shadow: 0 0 20px #2a2a2a;
-  background: linear-gradient(#68dac7,#54c7ba) !important;
+  background: linear-gradient(rgba(237, 238, 231, 0.5),rgba(237, 238, 231, 0.5)) !important;
   transition: all 0.3s ease;
 
 }
@@ -167,14 +167,15 @@ input.form-btn {
   border: none;
   cursor: pointer;
   border-radius: 2.2rem;
+  box-shadow: none;
   transition: all 0.3s linear;
-  box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.55);
-  background: linear-gradient(to right, #5bcdbe,#41ab9e);
+  background: linear-gradient(to right, rgba(237, 238, 231, 0.5),rgba(237, 238, 231, 0.2));
   margin:auto;
 }
 
 input.form-btn:hover{
-  box-shadow: none
+  box-shadow: 0 0 2.5rem rgba(218, 214, 214, 0.55);
+
 }
 
 .to-signin-link{
