@@ -190,8 +190,6 @@ body{
 
  /* Styling for the button responsible for scrolling to top */
 
-
-
 #add-item{
   position: fixed;
   z-index:1000;
@@ -245,7 +243,6 @@ body{
 
 }
 
-
 #form{
   display: hidden;
 }
@@ -258,13 +255,20 @@ body{
   border-radius: 5%;
   margin:0;
   padding:0;
-  border-bottom: 0rem solid cadetblue;
+  // border-bottom: 0rem solid cadetblue;
+  border: 0.3rem solid white;
+  background-color: cadetblue;
+
 }
 
 #button-storage {
   margin:0.5rem;
   max-height: 3vh;
   padding:0;
+  border-bottom: none !important;
+   div{
+    border-bottom: none !important;
+   }
 }
 
 #pic-store {
@@ -277,4 +281,15 @@ body{
   border-bottom: none !important;
   margin: 0;
   padding: 0;
+}
+
+#picture-edit {
+  @extend #picture;
+  height: 30vh;
+}
+
+#pic-store-edit{
+ @extend #pic-store;
+ right:5rem;
+ bottom: 9rem;
 }
