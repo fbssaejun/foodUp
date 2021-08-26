@@ -2,6 +2,7 @@
 nav{
   .user-nav {
     color: white;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .logo {
@@ -17,6 +18,7 @@ nav{
   display:flex;
   align-items: center;
   justify-content: center;
+  color:white;
   width:inherit;
   height: 80vh;
   flex-wrap: wrap;
@@ -46,6 +48,18 @@ nav{
       color:white;
       background-color: goldenrod;
     }
+
+    button:hover {
+      cursor: pointer;
+      color:white;
+      background-color: goldenrod;
+    }
+
+    button:active {
+      background-color: #3e8e41;
+      box-shadow: 0 5px #666;
+      transform: translate(4px);
+    }
   }
 
   .menu-item:hover {
@@ -54,7 +68,7 @@ nav{
 }
 
 th, td {
-  border-bottom: 1px solid #ddd;
+  border-bottom: none;
   display:flex;
   flex-wrap:wrap;
   text-align: center;
@@ -65,6 +79,7 @@ th, td {
 //Customer current order view page
 .orders {
   margin: auto;
+  color:white;
   display:flex;
   align-items: center;
   flex-direction: column;
@@ -75,13 +90,12 @@ th, td {
   width: 80%;
   overflow-y: auto;
   font-family: 'Montserrat', sans-serif;
- thead h1 {
-  font-family: 'Montserrat', sans-serif;
- }
 
   tbody {
     height: inherit;
   }
+
+
 
   #checkout {
     margin-bottom: 50px;
@@ -123,6 +137,7 @@ th, td {
 .order-summary {
   padding-top: 1em;
   font-family: 'Montserrat', sans-serif;
+  color: white;
 }
 
 
@@ -144,7 +159,7 @@ th, td {
 
     button:hover #creditcard {
       transform: translateY(0px);
-      transition: transform 0.2s ease-in-out;
+      transition: transform 0.3s ease-in-out;
       /*  overide transition for mouse enter */
     }
 
@@ -177,15 +192,16 @@ th, td {
   @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
 
   .button {
+    display: inline-block;
     border: none;
     outline: none;
     margin-bottom: 0.3em;
     background-color: purple;
-    padding: 1rem 90px 1rem 2rem;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
     position: relative;
     border-radius: 8px;
     letter-spacing: 0.7px;
-    background-color: #5086bd;
+    background-color: rgb(6, 155, 6);
     color: #fff;
     font-size: 21px;
     font-family: "Lato", sans-serif;
@@ -198,21 +214,21 @@ th, td {
   }
 
   .button__svg {
-    position: absolute;
-    overflow: visible;
-    bottom: 6px;
-    right: 0.2rem;
-    height: 140%;
+    height: 70%;
   }
 
-//After Checkout
 
+
+//After Checkout
 .checkout-message {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
   display: none;
   position:absolute;
   top: 10em;
   align-items: center;
   text-align: center;
+
 
   .checkmark {
     display:inline-block;
@@ -237,5 +253,12 @@ th, td {
     left:8px;
     top:12px;
 }
+}
+
+.total-price {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: thick;
+  font-size: 2rem;
+  color: white;
 }
 
