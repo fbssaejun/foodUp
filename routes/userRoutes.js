@@ -55,12 +55,12 @@ module.exports = function(router) {
     .then(menus => {
     getOrderItems(userId)
     .then(result => {
+      console.log(result)
       getLoggedInUser(userId)
       .then((user) => {
         res
         .status(200)
         .render('orders', {result, menus, user})
-
       })
     }
   )
