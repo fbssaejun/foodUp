@@ -1,3 +1,16 @@
+//nav bar
+nav{
+  .user-nav {
+    color: white;
+  }
+
+  .logo {
+    position:fixed;
+    left: 43.5vw;
+
+  }
+}
+
 //Customer menu selecting page
  .container{
   margin-top: 10vh;
@@ -17,7 +30,7 @@
   }
 
   .menu-item {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Montserrat', sans-serif;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
@@ -28,9 +41,9 @@
     border-bottom: 1px solid black;
 
     button {
-      border-radius: 5%;
+      border:none;
       opacity: 0.7;
-      color:black;
+      color:white;
       background-color: goldenrod;
     }
   }
@@ -61,7 +74,10 @@ th, td {
   flex-wrap: wrap;
   width: 80%;
   overflow-y: auto;
-  font-family: 'Hina mincho';
+  font-family: 'Montserrat', sans-serif;
+ thead h1 {
+  font-family: 'Montserrat', sans-serif;
+ }
 
   tbody {
     height: inherit;
@@ -91,7 +107,7 @@ th, td {
   }
 
   button {
-    border-radius: 7%;
+    border: none;
     opacity: 0.8;
     color:white;
     font-family: "Lato", sans-serif;
@@ -102,6 +118,11 @@ th, td {
 
 .orders::-webkit-scrollbar {
   display: none;
+}
+
+.order-summary {
+  padding-top: 1em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -151,13 +172,14 @@ th, td {
     transition: transform .2s ease-in-out;
   }
 
-  /* styling */
+  /* checkout button */
 
   @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
 
   .button {
     border: none;
     outline: none;
+    margin-bottom: 0.3em;
     background-color: purple;
     padding: 1rem 90px 1rem 2rem;
     position: relative;
@@ -216,3 +238,4 @@ th, td {
     top:12px;
 }
 }
+
