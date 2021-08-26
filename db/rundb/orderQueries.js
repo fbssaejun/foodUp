@@ -119,3 +119,26 @@ const countItemsInorder = function(order_id, menu_id) {
 }
 
 exports.countItemsInorder = countItemsInorder;
+
+
+//Count quantity for menu item
+const getBusketOrderForUser = function(userid) {
+  const queryString = `SELECT * FROM orders WHERE user_id = $1 AND basket = TRUE;`
+        return  pool.query(queryString, [userid])
+        .then(result => result.rows[0])
+        .catch(error => console.log(error.message));
+}
+
+exports.getBusketOrderForUser = getBusketOrderForUser;
+
+
+
+//Count quantity for menu item
+const changeStatusFromBusketFalseToTrue = function(userid) {
+  const queryString = `UPDATE orders SET basket = FALSE WHERE user_id = $1 AND basket = TRUE;`
+        return  pool.query(queryString, [userid])
+        .then(result => result)
+        .catch(error => console.log(error.message));
+}
+
+exports.changeStatusFromBusketFalseToTrue = changeStatusFromBusketFalseToTrue;

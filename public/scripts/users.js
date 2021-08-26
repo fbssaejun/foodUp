@@ -37,6 +37,7 @@ const renderMenuItems = () => {
 
 const showAfterCheckoutPage = () => {
   $(".button").click((event) => {
+
     event.preventDefault();
     alert('Order placed!')
     //Add another show for $0
@@ -44,7 +45,30 @@ const showAfterCheckoutPage = () => {
     $('h1').toggle('slow');
     $('.checkout-button').toggle('slow');
     $('.checkout-message').toggle('slow');
-  })
+
+    $.ajax({
+      type: "GET",
+      url: '/api/user/order'
+    })
+    .then((result) => {
+      console.log(result)
+      const userId = result.id
+      const text = `New order number: ${userId} has been placed! Start cooking : )`
+      $.ajax({
+        type: "POST",
+        url: `/admin/sendtext`,
+        data: {text}
+      })
+      .catch((error) => console.log(error.message))
+      })
+
+    // $.ajax({
+    //   type: "POST",
+    //   url: '/api/user/order/complete'
+    // }).catch((error) => console.error(error.message))
+    // })
+
+  });
 }
 
 

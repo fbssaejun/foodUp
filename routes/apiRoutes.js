@@ -1,4 +1,5 @@
 const {getMenuItems,getAllOrders,getMenuItem, getActiveOrderDetails, updateMenuItem, createMenuItem, deleteMenuItem} = require('../db/rundb/owner_queries.js');
+const {getBusketOrderForUser, changeStatusFromBusketFalseToTrue} = require('../db/rundb/orderQueries.js')
 const {getUserStatus} = require('../db/rundb/login_queries.js');
 
 //user this user for owner alainarich@aol.com
@@ -21,10 +22,32 @@ module.exports = function(router) {
         } else {
           res
           .status(403)
-          .send("❌ Permission Denied! YoMORGENSHTERNu don't have permissions to view this page ❌");
+          .send("❌ Permission Denied! You don't have permissions to view this page ❌");
         }
       })
   });
+
+  router.get('/user/order', (req, res) => {
+    const sessionId = req.session.userid;
+    getUserStatus(sessionId)
+      .then((result) =>{
+        if (sessionId) {
+          getBusketOrderForUser(sessionId)
+            .then((result) => {
+              res
+              .status(200)
+              .json(result)
+            })
+            .catch(error => console.error(error.message))
+        } else {
+          res
+          .status(403)
+          .send("❌ Permission Denied! You don't have permissions to view this page ❌");
+        }
+      })
+  });
+
+
 
   router.get('/menu', (req, res) => {
     const sessionId = req.session.userid;
@@ -116,7 +139,26 @@ module.exports = function(router) {
       })
   });
 
-
+  router.get('/user/order/complete', (req, res) => {
+    const sessionId = req.session.userid;
+    getUserStatus(sessionId)
+      .then((result) =>{
+        if (sessionId) {
+          changeStatusFromBusketFalseToTrue(sessionId)
+            .then((result) => {
+              console.log("This step completed")
+              res
+              .status(200)
+              .json(result)
+            })
+            .catch(error => console.error(error.message))
+        } else {
+          res
+          .status(403)
+          .send("❌ Permission Denied! You don't have permissions to view this page ❌");
+        }
+      })
+  });
 
   return router;
 
