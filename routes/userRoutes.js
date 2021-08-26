@@ -1,5 +1,5 @@
 // const bcrypt = require('bcrypt');
-const {getMenuItemsForClients, getClientOrders, getUsers} = require('../db/rundb/client_queries.js');
+const {getMenuItemsForClients, getClientOrders, getUsers,getLoggedInUser} = require('../db/rundb/client_queries.js');
 const loginRegisterRoutes = require('./loginRegisterRoutes.js')
 // const bcrypt = require('bcrypt');
 const {getOrderItemsForClient, addMenuItemsToOrder, addNewOrder, checkIfItemInOrder, incrementItemInOrder, getOrderItems, decrementItemInOrder, countItemsInorder, deleteItemInOrder} = require('../db/rundb/orderQueries')
@@ -15,10 +15,13 @@ module.exports = function(router) {
     getMenuItemsForClients()
     .then((items) => {
       userId = req.session.userid
-      const templateVars = {items, userId}
-      res
-      .status(200)
-      .render("customer_menu", templateVars)})
+      getLoggedInUser(userId)
+      .then((result) => {
+        const templateVars = {items, userId, result}
+        res
+        .status(200)
+        .render("customer_menu", templateVars)})
+  })
     .catch((error) => {
       res
       .status(500)
@@ -52,9 +55,13 @@ module.exports = function(router) {
     .then(menus => {
     getOrderItems(userId)
     .then(result => {
-      res
-      .status(200)
-      .render('orders', {result, menus})
+      getLoggedInUser(userId)
+      .then((user) => {
+        res
+        .status(200)
+        .render('orders', {result, menus, user})
+
+      })
     }
   )
  })
