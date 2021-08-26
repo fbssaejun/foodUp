@@ -90,7 +90,7 @@
 
     <nav>
       <a href="/customer_menu" class="hover-underline-animation">Menu</a>
-        <img src="./images/Screen Shot 2021-08-26 at 11.13.14 AM.png" class = "logo" />
+        <img src="./images/main-logo.png" class = "logo" />
       <div class="navAnchors">
         <a href="/login" name = "login" class="hover-underline-animation">Login / Register</a>
       </div>
@@ -100,15 +100,15 @@
 <div class="slideshow-container">
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
-    <img class = "frontImage" src="./images/thumb_2139_content_big_wide.jpeg"/>
+    <img class = "frontImage" src="./images/food-photography.jpeg"/>
   </div>
 
   <div class="mySlides fade" style="display: none">
-    <img class = "frontImage" src="./images/wide-variety-vegetarian-food-presented-260nw-698318131.jpeg"/>
+    <img class = "frontImage" src="./images/threeveggieontable.jpeg"/>
   </div>
 
   <div class="mySlides fade" style="display: none">
-    <img class = "frontImage" src="./images/food-background.jpeg"/>
+    <img class = "frontImage" src="./images/dark-mood-food-vegetables-lichtspiel-rembrandt-light.jpeg"/>
   </div>
 
   <!-- Next and previous buttons -->
@@ -137,6 +137,12 @@
       <p>Phone: 123-456-7890</p>
       <p>No refunds</p>
     </footer>
+
+    <script>
+      $(() => {
+        setInterval(() => {plusSlides(1)}, 2000)
+      })
+    </script>
   </body>
 
 </html>
