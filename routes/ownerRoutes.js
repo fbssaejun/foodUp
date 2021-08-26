@@ -65,9 +65,9 @@ module.exports = function(router) {
           sendText(text)
             .then((data) => {
               changeStatusFromBusketFalseToTrue(sessionId).then(() => {
-                res
-                .status(200)
-                .json(data)
+              res
+              .status(200)
+              .json(data)
               }).catch(error => console.error(error.message))
             })
         } else {

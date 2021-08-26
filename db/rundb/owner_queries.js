@@ -96,4 +96,12 @@ const deleteMenuItem = (itemid) => {
 exports.deleteMenuItem  = deleteMenuItem;
 
 
+const deleteOrder= (order_id) => {
+  const orderID= Number(order_id);
+  const queryString = `DELETE FROM orders WHERE id = $1;`
+  return db.query(queryString, [orderID])
+  .then(result => result.rows)
+  .catch(error => console.error(error.message))
+}
 
+exports.deleteOrder  = deleteOrder;
