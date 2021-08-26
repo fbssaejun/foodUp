@@ -293,3 +293,30 @@ body{
  right:5rem;
  bottom: 9rem;
 }
+
+#show-order{
+  display: none;
+  flex-direction: column;
+  background-color: cadetblue !important;
+}
+
+#show-row{
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  background-color: transparent;
+  border-bottom: 0.5px solid white;
+  margin: 0.5rem;
+}
+
+#item-show{
+  width: 20vw;
+  margin: auto;
+  background-color: transparent;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.product{
+  background-color: cadetblue
+}
