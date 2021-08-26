@@ -7,12 +7,16 @@ const recPhoneNumber = process.env.TARGET_NUMBER;
 //SET twilio phone-number:
 const twilioNumber = process.env.TWILIO_NUMBER;
 
+const sendText = function(text) {
 
-client.messages
+return client.messages
   .create({
-    body: 'Hello from Node 2',
+    body: `${text}`,
     to: recPhoneNumber,
     from: twilioNumber
   })
   .then((message) => console.log(message.sid))
   .catch((error) => console.log(error.message))
+
+}
+exports.sendText = sendText
