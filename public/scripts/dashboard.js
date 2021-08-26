@@ -1,4 +1,3 @@
-
 const loadDashboardItems = () => {
   $.get('/api/orders')
     .then((data) => {
@@ -44,13 +43,20 @@ const createDashBoardElement = function (item) {
     const $instructions = $(`<div id = "item-show">Instructions: ${item['instructions']}</div></div>`)
     $orderform.append($instructions)
 
+    const $rejectform = $(`<div id = "reject-slide">
+        <form>
+          <div id = "reject-container">
+          <div><label>Enter Rejection Text</label><input id = "reject-txt" value = ""></input></div>
+          <button type="submit" id = "btn-reject">Send Rejection</button>
+          </div>
+        </form>
+    </div>`)
+
   // setTimeout(() => {}, 100);
   $line.on('submit', (event) => {
     event.preventDefault();
     //Event if show button was clicked
-    console.log($($orderform))
     if (event.originalEvent.submitter.id === "view") {
-      console.log($($orderform).css("display"))
       if($($orderform).css("display") === "none") {
         $($orderform).slideDown("slow");
       } else {
@@ -60,26 +66,33 @@ const createDashBoardElement = function (item) {
       $($edit).slideDown("slow");
     } else if ((event.originalEvent.submitter.id === "reject")) {
       //If reject sent a sorry email and remove order from the database;
-      const text = `Sorry your request number ${item.id} was rejected`
-      $.ajax({
-        type: "POST",
-        url: `/admin/sendtext`,
-        data: { text }
-      })
-        .then(() => console.log("Hi!"))
-      //Remove order from the database:
-      $.ajax({
-        type: "POST",
-        url: `/api/order/${item.id}/delete`,
-        data: { text }
-      })
-        .then(() => loadDashboardItems())
-
+      if($($rejectform).css("display") === "none") {
+        $($rejectform).slideDown("slow");
+        $rejectform.on('submit', (event) => {
+          event.preventDefault();
+          const comment = $rejectform.find('#reject-txt').val();
+          const text = `Sorry your request number ${item.id} was rejected. ` + comment;
+          $.ajax({
+            type: "POST",
+            url: `/admin/sendtext`,
+            data: { text }
+          })
+          .then(() => console.log("Hi!"))
+          // Remove order from the database:
+          $.ajax({
+            type: "POST",
+            url: `/api/order/${item.id}/delete`,
+            data: { text }
+          })
+            .then(() => loadDashboardItems())
+        })
+      } else {
+        $($rejectform).slideUp("slow");
+      }
     }
   });
 
-
-  return $first.append($line, $orderform);
+  return $first.append($line, $orderform, $rejectform);
 
 };
 
