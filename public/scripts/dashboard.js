@@ -101,7 +101,7 @@ const createDashBoardElement = function (item) {
         $($acceptform).slideDown("slow");
         $acceptform.on('submit', (event) => {
           event.preventDefault();
-          const comment = $acceptform.find('#acceptform-txt').val();
+          const comment = $acceptform.find('#accept-txt').val();
           const text = `Your request number ${item.id} was accepted and we started working on it! ` + comment;
           //Send text to customer
           const $button = $acceptform.find('#btn-accept')
