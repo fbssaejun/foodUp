@@ -17,13 +17,18 @@ const loadDashboardMenu = () => {
 ========================================================================================================================================*/
 
 const createDashBoardElement = function (item) {
+  let acceptedID = "accept"
+  if(item['accepted'][0] === true) {
+    acceptedID = "acceptedID"
+  }
+
   const $first = $('<div>').addClass('product');
   const $line = $(`
             <form>
             <div>${item.id}</div>
              <div>${timeago.format(item.ordered_at)}</div>
              <button type="submit" id = "view">View Details</button>
-             <button type="submit" id = "accept">Accept</button>
+             <button type="submit" id = ${acceptedID}>Accept</button>
              <button type="submit" id = "complete">Complete</button>
              <button type="submit" id = "reject">Reject</button>
              </div>
@@ -104,10 +109,15 @@ const createDashBoardElement = function (item) {
           const comment = $acceptform.find('#accept-txt').val();
           const text = `Your request number ${item.id} was accepted and we started working on it! ` + comment;
           //Send text to customer
-          const $button = $acceptform.find('#btn-accept')
-          $button.removeClass('#btn-accept');
-          $button.addClass('#btn-grey');
+          const $button = $line.find('#accept')
+          // $button.removeClass('#btn-accept');
+          // $button.addClass('#btn-grey');
           $button.text("Accepted");
+          $.ajax({
+            type: "POST",
+            url: `/api/order/${item.id}/accept`
+          })
+          .then(() => loadDashboardItems())
           $.ajax({
             type: "POST",
             url: `/admin/sendtext`,
@@ -153,7 +163,9 @@ const renderOrders = (data) => {
       instructions: el['instructions'],
       menu_id: [el['menu_id']],
       quantity: [el['quantity']],
-      name: [el['name']]};
+      name: [el['name']],
+      //Added line here
+      accepted: [el['accepted']]};
       groupedData.push(addObject);
     } else {
       for (const item of groupedData) {

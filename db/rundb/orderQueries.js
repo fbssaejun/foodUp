@@ -153,3 +153,13 @@ const completeOrder = function(orderid, date) {
 }
 
 exports.completeOrder = completeOrder;
+
+// Accept order with specified id
+const acceptOrder = function(orderid) {
+  const queryString = `UPDATE orders SET accepted = TRUE WHERE id = $1`
+        return  pool.query(queryString, [orderid])
+        .then(result => result)
+        .catch(error => console.log(error.message));
+}
+
+exports.acceptOrder = acceptOrder;

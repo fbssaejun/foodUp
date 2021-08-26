@@ -202,7 +202,7 @@ input.form-btn:hover{
   height: auto;
   background-color: rgba(255, 255, 255, 0.5);
   margin: 0px 5% 0.2em 5%;
-  box-shadow: 12px 12px 20px rgb(255, 253, 253, 0.15), 0 6px 6px rgba(252, 252, 252, 0.35);
+  box-shadow: 12px 12px 20px rgba(175, 168, 168, 0.15), 0 6px 6px rgba(252, 252, 252, 0.35);
   border: 0.1rem solid red;
   display: flex;
   flex-direction: row;
@@ -220,7 +220,3 @@ input.form-btn:hover{
   word-wrap: break-word;
 }
 
-.err-icon {
-  color:red;
-  margin:auto;
-}
