@@ -82,6 +82,19 @@ $('.closebtn').on('click', (event) =>{
   }
 });
 
+$('#sign-in').children('input').first().on('click', (event) =>{
+  if ($('.error').css('display') !== 'none') {
+    $error.slideUp()
+  }
+})
+
+$('#sign-in').children('input').eq(1).on('click', (event) =>{
+if ($('.error').css('display') !== 'none') {
+  $error.slideUp()
+}
+})
+
+
 
 
 });
