@@ -2,10 +2,10 @@
 
 const $form = $(`
   <form id = "edit-form">
-  <div><label>Enter Name</label><input id = "name" value = ""></input></div>
-  <div><label>Enter Price</label><input id = "price" value = ></input></div>
-  <div><label>Enter Calories</label><input id ="calories" value = ></input></div>
-  <div><label>Enter Cuisine</label><input id ="cuisine" value = ""></input></div>
+  <div><label>Enter Name</label><input id = "name" value = "" type = "text"></input></div>
+  <div><label>Enter Price</label><input id = "price" value ="" type = "number"></input></div>
+  <div><label>Enter Calories</label><input id ="calories" value = "" type = "number"></input></div>
+  <div><label>Enter Cuisine</label><input id ="cuisine" value = "" type = "text"></input></div>
   <div><label>Enter Picture URL</label><input id = "image" value = ""></input></div>
   <div> <fieldset id = "group1">
   <div><label for="true">Show On the Menu</label>
@@ -72,6 +72,12 @@ $(document).ready(function () {
         Picture,
         Availability
       }
+      $form.find('#name').val("");
+      $form.find('#price').val("");
+      $form.find('#calories').val("");
+      $form.find('#cuisine').val("");
+      $form.find('#image').val("");
+
       $.ajax({
         type: "POST",
         url: `../api/menu/create/item/`,

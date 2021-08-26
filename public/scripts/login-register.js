@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+  $error = $(`<div class = 'error'>
+    <div id = "error-message">
+      <div id = "error-text">Error Message</div>
+    </div>
+    </div>`)
+
+  const $container = $('.top-buttons')
+
+
  // Catch default event handler for sign-up Button on login form,
  // supress it and replace with a custom one made with Ajax
 
@@ -17,7 +26,11 @@ $(document).ready(function() {
               window.location.href = '/admin/dashboards'
             }
           })
-          .catch(() => $("#sidebar-wrapper").toggle( "slide" ))
+          .catch(() =>  {$("#error-text").text("Your Login or Password is incorrect");
+          $error.slideDown()
+          $(this).children('input').first().val('')
+          $(this).children('input').eq(1).val('')
+        })
       }
   });
 
@@ -25,7 +38,9 @@ $(document).ready(function() {
   $("a[name = 'logout']").on('click', (event)=> {
     event.preventDefault();
     $.get('/logout')
-      .then(()=> window.location.href = '/')
+      .then(()=> {
+        $error.slideUp()
+        window.location.href = '/'})
   });
 
 // Catch default event handler for sign-up Button on login form,
@@ -39,8 +54,47 @@ $(document).ready(function() {
   if(login && passwordUnHashed) {
     $.post("/register", sentData)
       .then(() => window.location.href = '/customer_menu')
-      .catch(() => $("#sidebar-wrapper").toggle( "slide" ))
+      .catch(() => {
+        $("#error-text").text("User with this login already exists");
+        $error.slideDown()
+        $(this).children('input').first().val('')
+        $(this).children('input').eq(1).val('')
+      }
+      )
   }
  });
+ $container.append($error);
+
+ $('#sign-up').children('input').first().on('click', (event) =>{
+    if ($('.error').css('display') !== 'none') {
+      $error.slideUp()
+    }
+ })
+
+ $('#sign-up').children('input').eq(1).on('click', (event) =>{
+  if ($('.error').css('display') !== 'none') {
+    $error.slideUp()
+  }
+})
+$('.closebtn').on('click', (event) =>{
+  if ($('.error').css('display') !== 'none') {
+    $error.slideUp()
+  }
+});
+
+$('#sign-in').children('input').first().on('click', (event) =>{
+  if ($('.error').css('display') !== 'none') {
+    $error.slideUp()
+  }
+})
+
+$('#sign-in').children('input').eq(1).on('click', (event) =>{
+if ($('.error').css('display') !== 'none') {
+  $error.slideUp()
+}
+})
+
+
+
 
 });

@@ -142,3 +142,24 @@ const changeStatusFromBusketFalseToTrue = function(userid) {
 }
 
 exports.changeStatusFromBusketFalseToTrue = changeStatusFromBusketFalseToTrue;
+
+
+// Complete order with specified id
+const completeOrder = function(orderid, date) {
+  const queryString = `UPDATE orders SET completed_at = $2 WHERE id = $1`
+        return  pool.query(queryString, [orderid, date])
+        .then(result => result)
+        .catch(error => console.log(error.message));
+}
+
+exports.completeOrder = completeOrder;
+
+// Accept order with specified id
+const acceptOrder = function(orderid) {
+  const queryString = `UPDATE orders SET accepted = TRUE WHERE id = $1`
+        return  pool.query(queryString, [orderid])
+        .then(result => result)
+        .catch(error => console.log(error.message));
+}
+
+exports.acceptOrder = acceptOrder;

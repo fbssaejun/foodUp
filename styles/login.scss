@@ -187,3 +187,36 @@ input.form-btn:hover{
 }
 
 }
+ /* Main error container to control when error is hidden */
+
+ .error {
+  margin: 1em auto auto auto;
+  width: 15vw;
+  display: flex;
+  justify-content: center;
+  display: none;
+}
+  /* Error itself */
+#error-message {
+  width: 90%;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0px 5% 0.2em 5%;
+  box-shadow: 12px 12px 20px rgba(175, 168, 168, 0.15), 0 6px 6px rgba(252, 252, 252, 0.35);
+  border: 0.1rem solid red;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#error-text {
+  margin: auto 2em auto 2em;
+  color: Red;
+  padding: 0.9em;
+  display: flex;
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
