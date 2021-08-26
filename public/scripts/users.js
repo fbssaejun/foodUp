@@ -51,7 +51,6 @@ const showAfterCheckoutPage = () => {
       url: '/api/user/order'
     })
     .then((result) => {
-      console.log(result)
       const userId = result.id
       const text = `New order number: ${userId} has been placed! Start cooking : )`
       $.ajax({
@@ -61,13 +60,6 @@ const showAfterCheckoutPage = () => {
       })
       .catch((error) => console.log(error.message))
       })
-
-    // $.ajax({
-    //   type: "POST",
-    //   url: '/api/user/order/complete'
-    // }).catch((error) => console.error(error.message))
-    // })
-
   });
 }
 
