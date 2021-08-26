@@ -46,7 +46,7 @@ exports.getMenuItem = getMenuItem;
  * @return {Promise<{}>} A promise to the user.
  */
 const getActiveOrderDetails = () => {
-  const queryString =   `SELECT orders.id, ordered_at, instructions, menu_id, quantity, menu_items.name as name
+  const queryString =   `SELECT orders.id, ordered_at, instructions, menu_id, quantity, menu_items.name as name, accepted
                         FROM orders
                         JOIN order_items
                         ON orders.id = order_items.order_id

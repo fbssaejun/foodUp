@@ -34,6 +34,7 @@ CREATE TABLE menu_items(
 CREATE TABLE orders(
   id SERIAL PRIMARY KEY NOT NULL,
   basket BOOLEAN DEFAULT TRUE,
+  accepted BOOLEAN DEFAULT FALSE,
   ordered_at TIMESTAMP,
   completed_at TIMESTAMP,
   instructions TEXT,

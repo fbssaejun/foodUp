@@ -361,3 +361,50 @@ body{
 
   }
 }
+
+#accept-slide{
+  @extend #show-order;
+  display: hidden;
+  background-color: cadetblue !important;
+  justify-content: center;
+}
+#accept-container{
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: cadetblue;
+  form {
+    background-color: cadetblue;
+  }
+  #btn-accept{
+    margin-left: 2rem;
+    width: auto;
+    min-width: 10vw;
+    height: auto;
+    right: 10vw;
+  }
+
+  div{
+    width: auto;
+    display: flex;
+    margin: 0.5rem;
+      label {
+        margin-right: 5rem;
+        color: whitesmoke;
+        display: flex;
+        font-weight: bold;
+        align-items: center;
+      }
+      input {
+        min-width: 20vw;
+      }
+
+  }
+}
+
+#btn-grey{
+  width: 15vw;
+  margin: 0.2rem;
+  background-color: rgba(0, 255, 0, 0.5);
+}

@@ -52,6 +52,15 @@ const createDashBoardElement = function (item) {
         </form>
     </div>`)
 
+    const $acceptform = $(`<div id = "accept-slide">
+    <form>
+      <div id = "accept-container">
+      <div><label>Enter Notification for Customer</label><input id = "accept-txt" value = ""></input></div>
+      <button type="submit" id = "btn-accept">Accept Order</button>
+      </div>
+    </form>
+    </div>`)
+
   // setTimeout(() => {}, 100);
   $line.on('submit', (event) => {
     event.preventDefault();
@@ -89,10 +98,32 @@ const createDashBoardElement = function (item) {
       } else {
         $($rejectform).slideUp("slow");
       }
+    } else if ((event.originalEvent.submitter.id === "accept")){
+      if($($acceptform).css("display") === "none") {
+        $($acceptform).slideDown("slow");
+        $acceptform.on('submit', (event) => {
+          event.preventDefault();
+          const comment = $acceptform.find('#acceptform-txt').val();
+          const text = `Your request number ${item.id} was accepted and we started working on it! ` + comment;
+          //Send text to customer
+          const $button = $acceptform.find('#btn-accept')
+          $button.removeClass('#btn-accept');
+          $button.addClass('#btn-grey');
+          $button.text("Accepted");
+          // $.ajax({
+          //   type: "POST",
+          //   url: `/admin/sendtext`,
+          //   data: { text }
+          // })
+          // .then(() => loadDashboardItems())
+        })
+      } else {
+        $($acceptform).slideUp("slow");
+      }
     }
   });
 
-  return $first.append($line, $orderform, $rejectform);
+  return $first.append($line, $orderform, $rejectform, $acceptform);
 
 };
 
