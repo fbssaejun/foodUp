@@ -26,11 +26,28 @@ const loadDashboardItems = () => {
              <div>Item: ${item.name}</div>
              <div>${item.quantity}</div>
              <div>${item.instructions}</div>
-             <button type="submit" id = "Accept">Cancel</button>
-             <button type="submit" id = "Ready!">Ready</button>
+             <button type="submit" id = "accept">Complete</button>
+             <button type="submit" id = "reject">Reject</button>
              </div>
              </form>
       `)
+
+      $line.on('submit', (event) => {
+        event.preventDefault();
+        if (event.originalEvent.submitter.id === "accept") {
+          $($edit).slideDown("slow");
+        } else {
+          const text = `Sorry your request number ${item.id} was rejected`
+          $.ajax({
+            type: "POST",
+            url: `/admin/sendtext`,
+            data: {text}
+          })
+          .then(() => console.log("Hi!"))
+          }
+      });
+
+
     return $line;
 
   };
@@ -43,6 +60,7 @@ const loadDashboardItems = () => {
       $container.append($data);
     }
   };
+
 
 
   /* =====================================================================================================================================
@@ -93,8 +111,11 @@ const $line = $(`
          <div><label for="False">Hide on the Menu</label>
          <input type="radio" value="value2" name="group1" id = "False"></div>
          </fieldset></div>
-         <div><button type="submit" class = "submit-edit" id ="edit-submit">Edit</button><button type="submit" class = "submit-edit" id = "cancel">Cancel</button><div>
+         <div id = "button-storage"><button type="submit" class = "submit-edit" id ="edit-submit">Edit</button><button type="submit" class = "submit-edit" id = "cancel">Cancel</button><div>
          </div>
+         <div id = "pic-store-edit">
+         <img src=${item.image_url} alt="No Picture Loaded" id = "picture-edit">
+         </div id = "pic-store">
          </form>
   `)
 
@@ -144,13 +165,27 @@ const $line = $(`
           url: `../api/menu/update/item/${item.id}`,
           data: request,
         })
-        .then(() => loadDashboardMenu())
-
+        .then(() => {
+          $edit.slideUp("slow");
+          setTimeout(function (){
+          loadDashboardMenu()}
+          , 500)})
       }
     })
 
-    return $first.append($line, $edit);
+    const $image = $edit.find('#image')
+    $image.on("paste", function(){
+    let element = this;
+    setTimeout(function () {
+    var text = $(element).val();
+    $image.attr("src", text);
+    $("#pic-store-edit").empty();
+    const $newImage = `<img src=${text} alt="No Picture Loaded" id = "picture-edit"></img>`
+    $("#pic-store-edit").append($newImage);
+    }, 100);
+    });
 
+    return $first.append($line, $edit);
   };
 
 
