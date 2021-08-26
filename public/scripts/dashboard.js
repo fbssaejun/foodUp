@@ -71,9 +71,7 @@ const createDashBoardElement = function (item) {
       } else {
         $($orderform).slideUp("slow");
       }
-    } else if (event.originalEvent.submitter.id === "complete") {
-      $($edit).slideDown("slow");
-    } else if ((event.originalEvent.submitter.id === "reject")) {
+    }  else if ((event.originalEvent.submitter.id === "reject")) {
       //If reject sent a sorry email and remove order from the database;
       if($($rejectform).css("display") === "none") {
         $($rejectform).slideDown("slow");
@@ -110,19 +108,32 @@ const createDashBoardElement = function (item) {
           $button.removeClass('#btn-accept');
           $button.addClass('#btn-grey');
           $button.text("Accepted");
-          // $.ajax({
-          //   type: "POST",
-          //   url: `/admin/sendtext`,
-          //   data: { text }
-          // })
-          // .then(() => loadDashboardItems())
+          $.ajax({
+            type: "POST",
+            url: `/admin/sendtext`,
+            data: { text }
+          })
+          .then(() => loadDashboardItems())
         })
       } else {
         $($acceptform).slideUp("slow");
       }
+    } else if ((event.originalEvent.submitter.id === "complete")) {
+      const text = `Your order number ${item.id} has been completed. Enjoy!`
+      $.ajax({
+        type: "POST",
+        url: `/admin/sendtext`,
+        data: { text }
+      })
+      .then(() => {})
+      $.ajax({
+        type: "POST",
+        url: `/api/order/${item.id}/complete`,
+        data: { text }
+      })
+      .then(() => loadDashboardItems())
     }
   });
-
   return $first.append($line, $orderform, $rejectform, $acceptform);
 
 };
