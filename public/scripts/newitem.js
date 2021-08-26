@@ -8,10 +8,10 @@ const $form = $(`
   <div><label>Enter Cuisine</label><input id ="cuisine" value = ""></input></div>
   <div><label>Enter Picture URL</label><input id = "image" value = ""></input></div>
   <div> <fieldset id = "group1">
-  <div><label for="True">Show On the Menu</label>
-  <input type="radio" value="value1" name="group1" id="True" checked></div>
-  <div><label for="False">Hide on the Menu</label>
-  <input type="radio" value="value2" name="group1" id = "False"></div>
+  <div><label for="true">Show On the Menu</label>
+  <input type="radio" value="value1" name="group1" id="true" checked></div>
+  <div><label for="false">Hide on the Menu</label>
+  <input type="radio" value="value2" name="group1" id = "false"></div>
   </fieldset></div>
   <div id = 'button-storage'><button type="submit" class = "submit-edit" id ="edit-submit">Create</button><button type="submit" class = "submit-edit" id = "cancel">Cancel</button><div>
   </div>
@@ -59,11 +59,11 @@ $(document).ready(function () {
       const Cuisine = $form.find('#cuisine').val();
       const Picture = $form.find('#image').val();
       let Availability;
-      if ($('#True').is(":checked")) {
-         Availability = true;
-      } else {
-        Availability = false;
-      }
+      if ($edit.find('#true').is(":checked")) {
+        Availability = 1;
+     } else if ($edit.find('#false').is(":checked")){
+       Availability = 0;
+     }
       const request = {
         Name,
         Price,

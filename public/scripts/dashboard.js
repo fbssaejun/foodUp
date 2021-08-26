@@ -106,10 +106,10 @@ const $line = $(`
          <div><label>Edit Cuisine</label><input id ="cuisine" value = "${item.cuisine}"></input></div>
          <div><label>Edit Picture</label><input id = "image" value = "${item.image_url}"></input></div>
          <div> <fieldset id = "group1">
-         <div><label for="True">Show On the Menu</label>
-         <input type="radio" value="value1" name="group1" id="True" checked></div>
-         <div><label for="False">Hide on the Menu</label>
-         <input type="radio" value="value2" name="group1" id = "False"></div>
+         <div><label for="true">Show On the Menu</label>
+         <input type="radio" value="value1" name="group1" id="true" checked></div>
+         <div><label for="false">Hide on the Menu</label>
+         <input type="radio" value="value2" name="group1" id = "false"></div>
          </fieldset></div>
          <div id = "button-storage"><button type="submit" class = "submit-edit" id ="edit-submit">Edit</button><button type="submit" class = "submit-edit" id = "cancel">Cancel</button><div>
          </div>
@@ -146,10 +146,10 @@ const $line = $(`
         const newCuisine = $edit.find('#cuisine').val();
         const newPicture = $edit.find('#image').val();
         let newAvailability;
-        if ($('#True').is(":checked")) {
-           newAvailability = true;
-        } else {
-          newAvailability = false;
+        if ($edit.find('#true').is(":checked")) {
+           newAvailability = 1;
+        } else if ($edit.find('#false').is(":checked")){
+          newAvailability = 0;
         }
         const request = {
           id: item.id,
