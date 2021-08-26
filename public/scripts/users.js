@@ -1,3 +1,5 @@
+//  const {sendTextToCustomer} = require('../../routes/twilioRouter')
+
 //Render Each Menu Item inside a form with button to submit order
 const renderMenuItems = () => {
   $('body').ready((e) => {
@@ -33,9 +35,22 @@ const renderMenuItems = () => {
   });
  }
 
+const showAfterCheckoutPage = () => {
+  $(".button").click((event) => {
+    event.preventDefault();
+    alert('Order placed!')
+    //Add another show for $0
+    $('.orders').toggle('slow');
+    $('h1').toggle('slow');
+    $('.checkout-button').toggle('slow');
+    $('.checkout-message').toggle('slow');
+  })
+}
+
 
 
 $(document).ready(function() {
   renderMenuItems();
+  showAfterCheckoutPage();
 });
 
