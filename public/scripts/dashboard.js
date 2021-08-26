@@ -1,25 +1,25 @@
 
 const loadDashboardItems = () => {
-    $.get('/api/orders')
+  $.get('/api/orders')
     .then((data) => {
       renderOrders(data);
     });
-  };
+};
 
-  const loadDashboardMenu = () => {
-    $.get('/api/menu')
+const loadDashboardMenu = () => {
+  $.get('/api/menu')
     .then((data) => {
       renderItems(data);
     });
-  };
+};
 
 /* =====================================================================================================================================
 =======================================  CREATE FIRST DASHBOARD  =======================================================================
 ========================================================================================================================================*/
 
-  const createDashBoardElement =function(item){
+const createDashBoardElement = function (item) {
 
-    const $line = $(`
+  const $line = $(`
             <form>
             <div>${item.id}</div>
              <div>${timeago.format(item.ordered_at)}</div>
@@ -32,38 +32,47 @@ const loadDashboardItems = () => {
              </form>
       `)
 
-      $line.on('submit', (event) => {
-        event.preventDefault();
-        if (event.originalEvent.submitter.id === "accept") {
-          $($edit).slideDown("slow");
-        } else {
-          const text = `Sorry your request number ${item.id} was rejected`
-          $.ajax({
-            type: "POST",
-            url: `/admin/sendtext`,
-            data: {text}
-          })
-          .then(() => console.log("Hi!"))
-          }
-      });
+  $line.on('submit', (event) => {
+    event.preventDefault();
+    if (event.originalEvent.submitter.id === "accept") {
+      $($edit).slideDown("slow");
+    } else {
+      //If reject sent a sorry email and remove order from the database;
+      const text = `Sorry your request number ${item.id} was rejected`
+      $.ajax({
+        type: "POST",
+        url: `/admin/sendtext`,
+        data: { text }
+      })
+        .then(() => console.log("Hi!"))
+      //Remove order from the database:
+      $.ajax({
+        type: "POST",
+        url: `/api/order/${item.id}/delete`,
+        data: { text }
+      })
+        .then(() => loadDashboardItems())
 
-
-    return $line;
-
-  };
-
-  const renderOrders = (data) => {
-    const $container = $('#dashboard1');
-    $container.empty();
-    for (const element of data) {
-      const $data = createDashBoardElement(element);
-      $container.append($data);
     }
-  };
+  });
+
+
+  return $line;
+
+};
+
+const renderOrders = (data) => {
+  const $container = $('#dashboard1');
+  $container.empty();
+  for (const element of data) {
+    const $data = createDashBoardElement(element);
+    $container.append($data);
+  }
+};
 
 
 
-  /* =====================================================================================================================================
+/* =====================================================================================================================================
 =======================================  CREATE SECOND DASHBOARD  =======================================================================
 ========================================================================================================================================*/
 
@@ -77,15 +86,15 @@ const renderItems = (data) => {
   }
 };
 
-const createMenuElement =function(item){
-let status = "NO";
-let checkBoxStatus = "unchecked";
-if (item.available) {
-  status = "YES";
-  checkBoxStatus = "checked";
-}
-const $first = $('<div>').addClass('product');
-const $line = $(`
+const createMenuElement = function (item) {
+  let status = "NO";
+  let checkBoxStatus = "unchecked";
+  if (item.available) {
+    status = "YES";
+    checkBoxStatus = "checked";
+  }
+  const $first = $('<div>').addClass('product');
+  const $line = $(`
             <form id = "menu-box">
 
             <div id = "name">${item.name}</div>
@@ -98,7 +107,7 @@ const $line = $(`
 
              </form>
       `)
-      const $edit = $(`
+  const $edit = $(`
          <form id = "edit-form">
          <div><label>Edit Name</label><input id = "name" value = "${item.name}"></input></div>
          <div><label>Edit Price</label><input id = "price" value = ${item.price}></input></div>
@@ -119,79 +128,79 @@ const $line = $(`
          </form>
   `)
 
-    //SHOW EDIT FORM
-    $line.on('submit', (event) => {
-      event.preventDefault();
-      if (event.originalEvent.submitter.id === "edit") {
-        $($edit).slideDown("slow");
-      } else {
-        $.ajax({
-          type: "POST",
-          url: `/api/menu/delete/item/${item.id}`
-        })
+  //SHOW EDIT FORM
+  $line.on('submit', (event) => {
+    event.preventDefault();
+    if (event.originalEvent.submitter.id === "edit") {
+      $($edit).slideDown("slow");
+    } else {
+      $.ajax({
+        type: "POST",
+        url: `/api/menu/delete/item/${item.id}`
+      })
         .then(() => loadDashboardMenu())
-        }
-    });
+    }
+  });
 
-    $edit.on('submit', (event) => {
-      event.preventDefault();
-      console.log($edit)
+  $edit.on('submit', (event) => {
+    event.preventDefault();
+    console.log($edit)
 
-      if (event.originalEvent.submitter.id === "cancel"){
-        $edit.slideUp("slow");
-      } else if (event.originalEvent.submitter.id === "edit-submit"){
-        const newName = $edit.find('#name').val();
-        const newPrice = $edit.find('#price').val();
-        const newCalories = $edit.find('#calories').val();
-        const newCuisine = $edit.find('#cuisine').val();
-        const newPicture = $edit.find('#image').val();
-        let newAvailability;
-        if ($edit.find('#true').is(":checked")) {
-           newAvailability = 1;
-        } else if ($edit.find('#false').is(":checked")){
-          newAvailability = 0;
-        }
-        const request = {
-          id: item.id,
-          newName,
-          newPrice,
-          newCalories,
-          newCuisine,
-          newPicture,
-          newAvailability
-        }
-        $.ajax({
-          type: "POST",
-          url: `../api/menu/update/item/${item.id}`,
-          data: request,
-        })
+    if (event.originalEvent.submitter.id === "cancel") {
+      $edit.slideUp("slow");
+    } else if (event.originalEvent.submitter.id === "edit-submit") {
+      const newName = $edit.find('#name').val();
+      const newPrice = $edit.find('#price').val();
+      const newCalories = $edit.find('#calories').val();
+      const newCuisine = $edit.find('#cuisine').val();
+      const newPicture = $edit.find('#image').val();
+      let newAvailability;
+      if ($edit.find('#true').is(":checked")) {
+        newAvailability = 1;
+      } else if ($edit.find('#false').is(":checked")) {
+        newAvailability = 0;
+      }
+      const request = {
+        id: item.id,
+        newName,
+        newPrice,
+        newCalories,
+        newCuisine,
+        newPicture,
+        newAvailability
+      }
+      $.ajax({
+        type: "POST",
+        url: `../api/menu/update/item/${item.id}`,
+        data: request,
+      })
         .then(() => {
           $edit.slideUp("slow");
-          setTimeout(function (){
-          loadDashboardMenu()}
-          , 500)})
-      }
-    })
+          setTimeout(function () {
+            loadDashboardMenu()
+          }
+            , 500)
+        })
+    }
+  })
 
-    const $image = $edit.find('#image')
-    $image.on("paste", function(){
+  const $image = $edit.find('#image')
+  $image.on("paste", function () {
     let element = this;
     setTimeout(function () {
-    var text = $(element).val();
-    $image.attr("src", text);
-    $("#pic-store-edit").empty();
-    const $newImage = `<img src=${text} alt="No Picture Loaded" id = "picture-edit"></img>`
-    $("#pic-store-edit").append($newImage);
+      var text = $(element).val();
+      $image.attr("src", text);
+      $("#pic-store-edit").empty();
+      const $newImage = `<img src=${text} alt="No Picture Loaded" id = "picture-edit"></img>`
+      $("#pic-store-edit").append($newImage);
     }, 100);
-    });
+  });
 
-    return $first.append($line, $edit);
-  };
+  return $first.append($line, $edit);
+};
 
 
-$(document).ready(function() {
+$(document).ready(function () {
   loadDashboardItems();
   loadDashboardMenu();
 });
-
-// exports.loadDashboardMenu = loadDashboardMenu;
