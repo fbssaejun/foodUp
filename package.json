@@ -25,9 +25,9 @@
     "pg": "^8.5.0",
     "pg-native": "^3.0.0",
     "timeago.js": "^4.0.2",
-    "twilio": "^3.67.0"
+    "twilio": "^3.67.0",
+    "nodemon": "^1.19.4"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
   }
 }
