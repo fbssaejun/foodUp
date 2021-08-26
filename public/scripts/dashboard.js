@@ -215,7 +215,7 @@ const createMenuElement = function (item) {
          <div><label>Edit Price</label><input id = "price" value = ${item.price} type = "number"></input></div>
          <div><label>Edit Calories</label><input id ="calories" value = ${item.kalories} type = "number"></input></div>
          <div><label>Edit Cuisine</label><input id ="cuisine" value = "${item.cuisine}" type = "text"></input></div>
-         <div><label>Edit Picture</label><input id = "image" value = "${item.image_url}"></input></div>
+         <div><label>Edit Picture</label><input id = "image" value = "${item.image_url}" type = "text"></input></div>
          <div> <fieldset id = "group1">
          <div><label for="true">Show On the Menu</label>
          <input type="radio" value="value1" name="group1" id="true" checked></div>
@@ -294,24 +294,20 @@ const createMenuElement = function (item) {
     }
   })
 
-  const $image = $edit.children('#image')
-  console.log($edit);
-  $image.on("paste", function () {
-    console.log($image)
-    let element = this;
+    const $image = $edit.find('#image')
+    $image.on("paste", function(){
     console.log(this)
+    let element = this;
     setTimeout(function () {
-      let text = $($image).val();
-      if (text.substring(0,4) !== "http"){
-        text = "https://" + text;
-      }
-      $image.attr("src", text);
-      $("#pic-store-edit").empty();
-      const $newImage = `<img src=${text} alt="No Picture Loaded" id = "picture-edit"></img>`
-      console.log($newImage)
-      $("#pic-store-edit").append($newImage);
-    }, 100);
-  });
+    var text = $(element).val();
+    $image.attr("src", text);
+    console.log($edit.find("#pic-store"));
+    $edit.find("#pic-store-edit").empty();
+    const $newImage = `<img src=${text} alt="No Picture Loaded" id = "picture"></img>`
+    console.log($newImage);
+    $edit.find("#pic-store-edit").append($newImage);
+  }, 300);
+  })
 
   return $first.append($line, $edit);
 };
