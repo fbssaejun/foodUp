@@ -97,7 +97,7 @@
       <% } %>
     <% } %>
   <% } %>
-       <p><span class="total-price">Total Price : $ <%= totalPrice %></span></p>
+       <p><span class="total-price">Total Price (including tax) : $ <%= totalPrice + (totalPrice * 0.13) %></span></p>
   <form class="checkout-button">
     <button class="button">
       <span class="button__text">
