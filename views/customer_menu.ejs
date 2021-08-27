@@ -34,7 +34,8 @@
       <img src="./images/main-logo.png" class = "logo" />
       <div class="navAnchors">
         <% if(result[0].email === 'alainarich@aol.com') { %>
-          <span class="user-nav">Hope you're hungry,  <%= result[0].email %> !</span>
+          <span class="user-nav">Hello Admin,  <%= result[0].email %> !</span>
+          <a href="/orders"><i class="fas fa-shopping-basket"></i></a>
           <a href="/admin/dashboards">Dashboard</a>
           <a href="" name='logout'>Logout</a>
         <% } else if(userId) { %>
