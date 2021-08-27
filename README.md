@@ -3,7 +3,7 @@ FoodUp
 
 ## Project details
 
-FooUp is a Food Food Pick-up Ordering Application
+FooUp is a Food Pick-up Ordering Application
 
 ### For customers
 1. Allows Users to create an account, browse through restaurant's menus.
@@ -11,11 +11,10 @@ FooUp is a Food Food Pick-up Ordering Application
 3. Once the order is placed, users will be notified with a message on the screen with the checked out price.
 4. Users will receive a text message from the owner according to their order's conditions, whether if it's accepted, rejected or completed.
 
-![""](https://github.com/fbssaejun/tweeter/blob/master/docs/dt-icon.png)
-![""](https://github.com/fbssaejun/tweeter/blob/master/docs/dt-icon.png)
-![""](https://github.com/fbssaejun/tweeter/blob/master/docs/dt-icon.png)
-![""](https://github.com/fbssaejun/tweeter/blob/master/docs/dt-icon.png)
-![""](https://github.com/fbssaejun/tweeter/blob/master/docs/dt-icon.png)
+![""](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Landing%20page.png)
+![""](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Menu%20page.png)
+![""](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/checkout%20page.png)
+![""](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Complete%20order.png)
 
 
 
@@ -24,10 +23,9 @@ FooUp is a Food Food Pick-up Ordering Application
 2. Owners has their own dashboard where they can modify, delete, add orders and menu items.
 3. Owners can send messages to customers about their order when accepting, rejecting or completing orders.
 
-![""](https://github.com/fbssaejun/tweeter/blob/master/docs/dt-icon.png)
-![""](https://github.com/fbssaejun/tweeter/blob/master/docs/dt-icon.png)
-![""](https://github.com/fbssaejun/tweeter/blob/master/docs/dt-icon.png)
-![""](https://github.com/fbssaejun/tweeter/blob/master/docs/dt-icon.png)
+![""](https://github.com/fbssaejun/foodUp/blob/master/public/images/owner-path/Accept%20order.png)
+![""](https://github.com/fbssaejun/foodUp/blob/master/public/images/owner-path/Edit%20order.png)
+![""](https://github.com/fbssaejun/foodUp/blob/master/public/images/owner-path/Create%20new%20order.png)
 
 
 
