@@ -33,7 +33,10 @@
       <a href="/"><i class="fas fa-arrow-left"></i></a>
       <img src="./images/main-logo.png" class = "logo" />
       <div class="navAnchors">
-        <% if(result[0].email === 'alainarich@aol.com') { %>
+        <% if(result[0] === undefined) { %>
+          <a href="/">Login to place an Order!</a>
+
+        <%} else if(result[0].email === 'alainarich@aol.com') { %>
           <span class="user-nav">Hello Admin,  <%= result[0].email %> !</span>
           <a href="/orders"><i class="fas fa-shopping-basket"></i></a>
           <a href="/admin/dashboards">Dashboard</a>
@@ -42,9 +45,7 @@
           <span class="user-nav">Hope you're hungry,  <%= result[0].email %> !</span>
           <a href="/orders"><i class="fas fa-shopping-basket"></i></a>
           <a href="" name='logout'>Logout</a>
-        <%  } else { %>
-          <a href="/">Login to place an Order!</a>
-          <%  }  %>
+        <%  } %>
       </div>
     </nav>
     <main class="container">
