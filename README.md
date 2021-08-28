@@ -3,7 +3,7 @@ FoodUp
 
 ## Project details
 
-FooUp is a Food Pick-up Ordering Application
+FoodUp is a Food Pick-up Ordering Application
 
 ### For customers
 1. Allows Users to create an account, browse through restaurant's menus.
@@ -11,10 +11,10 @@ FooUp is a Food Pick-up Ordering Application
 3. Once the order is placed, users will be notified with a message on the screen with the checked out price.
 4. Users will receive a text message from the owner according to their order's conditions, whether if it's accepted, rejected or completed.
 
-![""](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Landing%20page.png)
-![""](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Menu%20page.png)
-![""](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/checkout%20page.png)
-![""](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Complete%20order.png)
+![](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Landing%20page.png)
+![](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Menu%20page.png)
+![](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/checkout%20page.png)
+![](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Complete%20order.png)
 
 
 
